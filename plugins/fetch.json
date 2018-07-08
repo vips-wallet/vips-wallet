@@ -1,0 +1,55 @@
+{
+  "cordova-plugin-keychain-touch-id": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-keychain-touch-id"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@5.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-customurlscheme": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-customurlscheme@^4.3.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "URL_SCHEME": "vipstarcoin",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/"
+    }
+  },
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device@^2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-android-permissions": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-android-permissions"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

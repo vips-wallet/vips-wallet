@@ -1,0 +1,209 @@
+{
+  "common": {
+    "language": "Language",
+    "back": "Back",
+    "next": "Next",
+    "yes": "Yes",
+    "no": "No",
+    "finish": "Done",
+    "cancel": "Cancel",
+    "close": "Close",
+    "reload": "Reload",
+    "input_password": "Enter Password",
+    "error": "Error",
+    "password_mismatch": "Wrong Password",
+    "camera_not_permitted": "Need permission to use camera",
+    "copy_clipboard": "Copied to clip board",
+    "currency_is_not_supported": "Currency chosen ({amountType}) is not supported",
+    "invalid_uri_format": "Invalid VIPSTARCOIN BIP21 URI"
+  },
+  "message": {
+    "title": "VIPSTAR☆COIN",
+    "phrase": "Let's \"Buy 'Fun'\""
+  },
+  "menu": {
+    "account": "Wallet Name: {name}",
+    "home": "Home",
+    "address": "Address List",
+    "receive": "Receive",
+    "send": "Send",
+    "history": "History",
+    "settings": "Settings"
+  },
+  "initialize": {
+    "create": "Create transaction",
+    "restore": "Restore",
+    "create_new_wallet": "Create new wallet",
+    "password": "Password",
+    "password_description": "Set password with more than 8 letters. You can use alphabet, numbers, and (!@#$%^&*)",
+    "password_less_length": "Minimum is 8 letters",
+    "password_use_invalid_word": "Invalid words included",
+    "word_count": "Number of words for your pass phrase",
+    "word_count_description": "\"Pass Phrase\" or \"Mnemonic Phrase\" is a substitute of secret key which is memorable to people. More words, more secure your wallet will be",
+    "your_passphrase": "How to store your Pass phrase",
+    "your_passphrase_description": "You need pass phrases to restore your wallet. If you lose them, you will be unable to restore wallet. If they get known to someone else, your VIPSTARCOIN will be under risk of being stolen. Write down precisely and store it to secure place. If lost, no one can restore.",
+    "invalid_password": "Wrong Password",
+    "show_passphrase": "Show Passphrase",
+    "restore_wallet": "Restore Wallet",
+    "restore_phrase": "Restore Phrase",
+    "restore_phrase_description": "Enter passphrase of the wallet you want to restore",
+    "restore_qrcode": "QR Code",
+    "import_failed": "Failed to restore wallet"
+  },
+  "home": {
+    "description": "Home",
+    "loading": "Now loading…",
+    "confirmed_balance": "Available Balance",
+    "unconfirmed": "({unconfirmed} VIPS under verification)",
+    "fiat": "Current value in FIAT",
+    "fiat_balance": "Approximately {amount} {currency}",
+    "fiat_fetch_time": "(As of {time})",
+    "error": {
+      "connection_failed": "Loading Error"
+    }
+  },
+  "address": {
+    "description": "List of VIPS addresses",
+    "new_address": "Add new address"
+  },
+  "receive": {
+    "description": "Receive VIPS",
+    "copy": "Copy Nukumolink",
+    "setting": "Advanced Settings",
+    "address": "VIPS Address",
+    "use_fiat": "Embed {amount_type} in QR code",
+    "amount": "Request amount",
+    "fiat": "Current value in FIAT",
+    "fiat_code": "FIAT",
+    "message": "Message",
+    "error": {
+      "invalid_amount": "Invalid \"Request amount\"",
+      "invalid_fiat": "Invalid \"Current value in FIATt\""
+    }
+  },
+  "send": {
+    "description": "Send VIPS",
+    "available_balance": "Available Balance",
+    "receiver_message": "Message received",
+    "receiver_address": "Receiver Address",
+    "amount": "Sending amount",
+    "fiat": "Current value in FIAT",
+    "fiat_code": "FIAT",
+    "message": "Message to receiver",
+    "include_rate": "Record Rate",
+    "txfee": "Transaction Fee",
+    "confirm": "Confirm",
+    "send": "Send",
+    "finish": "Sent",
+    "error": {
+      "required_valid_address": "Enter valid VIPS address",
+      "required_valid_amount": "Invalid amount",
+      "required_over_dust": "Please enter more than minimum amount ({dust} VIPS)",
+      "required_valid_fiat": "Invalid current value in FIAT",
+      "required_valid_message": "Message too long",
+      "update_balance_failed": "Failed to load available balance",
+      "build_transaction_failed": "Failed to generate transaction",
+      "send_transaction_failed": "Transaction Failed"
+    }
+  },
+  "history": {
+    "description": "History",
+    "not_found": "No History",
+    "count": "Total: {total} transactions",
+    "more": "See Old Transactions",
+    "detail": "Transaction Details",
+    "txid": "TXID",
+    "receive": "Timestamp",
+    "transfer": "Amount",
+    "txfee": "Transaction Fee",
+    "rate": "FIAT rate ({fiat}/VIPS)",
+    "message": "Message",
+    "input": "Input",
+    "output": "Output",
+    "sender": "Sender Addresses",
+    "receiver": "Receiver Addresses",
+    "open_explorer": "Open Explorer"
+  },
+  "settings": {
+    "description": "Settings",
+    "change_locale": "Language",
+    "change_currency": "Change FIAT",
+    "fingerprint": "Fingerprint",
+    "change_password": "Change Password",
+    "manage_account": "Manage wallet",
+    "make_backup": "Backup",
+    "delete_wallet": "Delete all wallets",
+    "about": "About this software",
+    "locale": {
+      "japanese": "Japanese",
+      "english": "English",
+      "german": "German"
+    },
+    "currency": {
+      "AUD": "AUD",
+      "BRL": "BRL",
+      "CAD": "CAD",
+      "CHF": "CHF",
+      "CLP": "CLP",
+      "CNY": "CNY",
+      "CZK": "CZK",
+      "DKK": "DKK",
+      "EUR": "EUR",
+      "GBP": "GBP",
+      "HKD": "HKD",
+      "HUF": "HUF",
+      "IDR": "IDR",
+      "ILS": "ILS",
+      "INR": "INR",
+      "JPY": "JPY",
+      "KRW": "KRW",
+      "MXN": "MXN",
+      "MYR": "MYR",
+      "NOK": "NOK",
+      "NZD": "NZD",
+      "PHP": "PHP",
+      "PKR": "PKR",
+      "PLN": "PLN",
+      "RUB": "RUB",
+      "SEK": "SEK",
+      "SGD": "SGD",
+      "THB": "THB",
+      "TRY": "TRY",
+      "TWD": "TWD",
+      "USD": "USD",
+      "ZAR": "ZAR"
+    },
+    "password": {
+      "current": "Current Password",
+      "new": "New Password",
+      "confirm": "New Password (Confirm)",
+      "button": "Change"
+    },
+    "fingerprint_detail": {
+      "enable": "Enable Fingerprint",
+      "save": "Save Settings",
+      "done": "New settings saved",
+      "error": {
+        "failed_save": "Failed to enable fingerprint authentication",
+        "not_supported": "Your device does not support fingerprint authentication"
+      }
+    },
+    "backup": {
+      "show_passphrase": "Show Passphrase",
+      "hide_passphrase": "Hide Passphrase"
+    },
+    "delete": {
+      "description": "Delete wallet data from device. You can restore by re-enterting pass phrase",
+      "confirm_make_backup": "I wrote down pass phrase",
+      "confirm_delete": "Delete wallet data from device",
+      "do_delete": "Delete",
+      "complete": "Wallet data deleted"
+    },
+    "about_detail": {
+      "name": "Name of application",
+      "version": "Vestion",
+      "bugreport": "Report bug",
+      "open_bugreport_form": "Open bug reporting form"
+    }
+  }
+}

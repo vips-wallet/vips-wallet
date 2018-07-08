@@ -1,0 +1,2 @@
+VIPSTARCOIN light wallet
+========================

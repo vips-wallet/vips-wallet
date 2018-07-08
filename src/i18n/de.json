@@ -1,0 +1,209 @@
+{
+  "common": {
+    "language": "Sprache",
+    "back": "Zurück",
+    "next": "Weiter",
+    "yes": "Ja",
+    "no": "Nein",
+    "finish": "Fertig",
+    "cancel": "Abbruch",
+    "close": "Schließen",
+    "reload": "Neu laden",
+    "input_password": "Passwort eingeben",
+    "error": "Fehler",
+    "password_mismatch": "Passwort inkorrekt",
+    "camera_not_permitted": "Zugriff auf Kamera muss genehmigt werden.",
+    "copy_clipboard": "Kopiert",
+    "currency_is_not_supported": "Diese Währung ({amountType}) wird nicht unterstützt.",
+    "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI"
+  },
+  "message": {
+    "title": "VIPSTAR☆COIN",
+    "phrase": "Spaß kaufen"
+  },
+  "menu": {
+    "account": "Wallet-Name: {name}",
+    "home": "Home",
+    "address": "Adressliste",
+    "receive": "Empfangen",
+    "send": "Senden",
+    "history": "Verlauf",
+    "settings": "Einstellung"
+  },
+  "initialize": {
+    "create": "Neu",
+    "restore": "Wiederherstellung",
+    "create_new_wallet": "Neues Wallet",
+    "password": "Passwort",
+    "password_description": "Bitte ein Passwort erstellen. Es muss mindestens 8 Buchstaben beinhalten (Folgende Sonderzeichen sind erlaubt:  !@#$%^&*)",
+    "password_less_length": "Mindestlänge 8 Buchstaben",
+    "password_use_invalid_word": "Ungültige Wörter enthalten",
+    "word_count": "Passwort-Wortzahl",
+    "word_count_description": "Die leicht zu merkenden Buchstabenfolge vom Geheimschlüssel werden \"Passphrase\" \"Mnemonic Phrase“ genannt. Je höher die Wortzahl, desto sicherer das Wallet.",
+    "your_passphrase": "Für die Aufbewahrung der Passphrase.",
+    "your_passphrase_description": "Passphrase sind für die Wiederherstellung vom Wallet notwendig. Werden diese Passphrase unauffindbar, kann das Wallet nicht wiederhergestellt werden. Sollte eine Person Ihre Passphrase erfahren, könnte jemand Ihre VIPSTARCOIN stehlen. Sorgen Sie bitte dafür, das diese Passphrase fehlerfrei sind. Notieren Sie sich bitte diese Passphrase und bewahren Sie diese sicher auf. ",
+    "invalid_password": "Passwort inkorrekt",
+    "show_passphrase": "Passphrase anzeigen",
+    "restore_wallet": "Wallet wiederherstellen",
+    "restore_phrase": "Passphrase",
+    "restore_phrase_description": "Bitte die Passphrase für das zu wiederherstellende Wallet eingeben.",
+    "restore_qrcode": "QR-Code",
+    "import_failed": "Wiederherstellung fehlgeschlagen"
+  },
+  "home": {
+    "description": "Home",
+    "loading": "Geladen …",
+    "confirmed_balance": "Verfügbarer Betrag",
+    "unconfirmed": "({unconfirmed} VIPS werden verifiziert)",
+    "fiat": "In gesetzlicher Währung",
+    "fiat_balance": "ca. {amount} {currency}",
+    "fiat_fetch_time": "(Stand:  {time} )",
+    "error": {
+      "connection_failed": "Fehler beim Datenzugriff"
+    }
+  },
+  "address": {
+    "description": "VIPS-Adressliste",
+    "new_address": "Neue Adressen hinzufügen"
+  },
+  "receive": {
+    "description": "VIPS empfangen",
+    "copy": "Nukumolink kopieren",
+    "setting": "Erweiterte Einstellung",
+    "address": "VIPS-Adresse",
+    "use_fiat": "{amount_type} in den QR-Code einbauen.",
+    "amount": "Geforderter Betrag",
+    "fiat": "In gesetzlicher Währung",
+    "fiat_code": "Gesetzliche Währung",
+    "message": "Nachricht",
+    "error": {
+      "invalid_amount": "Falsche Eingabe des Betrages",
+      "invalid_fiat": "Falsche Eingabe der gesetzlichen Währung"
+    }
+  },
+  "send": {
+    "description": "VIPS senden",
+    "available_balance": "Verfügbarer Betrag",
+    "receiver_message": "Nachricht des Empfängers ",
+    "receiver_address": "Adresse des Empfängers",
+    "amount": "Zu sendender Betrag",
+    "fiat": "In gesetzlicher Währung",
+    "fiat_code": "Gesetzliche Währung",
+    "message": "Nachricht",
+    "include_rate": "Kurs speichern",
+    "txfee": "Gebühr",
+    "confirm": "Bestätigen",
+    "send": "Senden",
+    "finish": "Gesendet",
+    "error": {
+      "required_valid_address": "Bitte eine gültige VIPS-Adresse eingeben",
+      "required_valid_amount": "Falscher Betrag",
+      "required_over_dust": "Der Betrag muss mindestens ({dust} VIPS) sein.",
+      "required_valid_fiat": "Falsche Eingabe bei der gesetzlichen Währung.",
+      "required_valid_message": "Nachricht zu lang",
+      "update_balance_failed": "Aktualisierung vom verfügbaren Betrag fehlgeschlagen.",
+      "build_transaction_failed": "Transaktionserstellung fehlgeschlagen",
+      "send_transaction_failed": "Senden fehlgeschlagen"
+    }
+  },
+  "history": {
+    "description": "Verlauf",
+    "not_found": "Kein Verlauf vorhanden",
+    "count": "Insgesamt: {total} Transaktionen",
+    "more": "Ältere Transaktionen anzeigen",
+    "detail": "Transaktionsdetails",
+    "txid": "TXID",
+    "receive": "Empfangen am:  ",
+    "transfer": "Betrag",
+    "txfee": "Gebühr",
+    "rate": "Gegenwert ({fiat}/VIPS)",
+    "message": "Nachrichten",
+    "input": "Eingang",
+    "output": "Ausgang",
+    "sender": "Absenderadressen",
+    "receiver": "Empfängeradressen",
+    "open_explorer": "Im Explorer anschauen"
+  },
+  "settings": {
+    "description": "Einstellung",
+    "change_locale": "Sprache",
+    "change_currency": "Gesetzliche Währung ändern",
+    "fingerprint": "Fingerabdruckscanner ",
+    "change_password": "Passwort ändern",
+    "manage_account": "Wallet verwalten",
+    "make_backup": "Backup",
+    "delete_wallet": "Alle Wallets löschen",
+    "about": "Über dieses Programm",
+    "locale": {
+      "japanese": "Japanisch",
+      "english": "Englisch",
+      "german": "Deutsch"
+    },
+    "currency": {
+      "AUD": "AUD - Australische Dollar",
+      "BRL": "BRL - Brasilianischer Real",
+      "CAD": "CAD - Kanadische Dollar",
+      "CHF": "CHF - Schweizer Franken",
+      "CLP": "CLP - Chilenischer Peso",
+      "CNY": "CNY - Chinesischer Yuan",
+      "CZK": "CZK - Tschechische Krone",
+      "DKK": "DKK - Dänische Krone",
+      "EUR": "EUR - Euro",
+      "GBP": "GBP - Britische Pfund",
+      "HKD": "HKD - Hong Kong-Dollar",
+      "HUF": "HUF - Ungarischer Forint",
+      "IDR": "IDR - Indonesische Rupie",
+      "ILS": "ILS - Neuer Schekel",
+      "INR": "INR - Indische Rupie",
+      "JPY": "JPY - Japanischer Yen",
+      "KRW": "KRW - Südkoreanischer Won",
+      "MXN": "MXN - Mexikanischer Peson",
+      "MYR": "MYR - Malaysischer Ringgit",
+      "NOK": "NOK - Norwegische Krone",
+      "NZD": "NZD - New Zealand Dollar",
+      "PHP": "PHP - Philippinischer Peso",
+      "PKR": "PKR - Pakistanische Rupie",
+      "PLN": "PLN – Polnischer Zloty",
+      "RUB": "RUB - Russischer Rubel",
+      "SEK": "SEK - Schwedische Krone",
+      "SGD": "SGD - Singapur Dollar",
+      "THB": "THB - Thai Baht",
+      "TRY": "TRY - Türkische Lira",
+      "TWD": "TWD - Taiwanesischer Dollar",
+      "USD": "USD - Vereinigte Staaten Dollar",
+      "ZAR": "ZAR - Südafrikanischer Rand"
+    },
+    "password": {
+      "current": "Aktuelles Passwort",
+      "new": "Neues Passwort",
+      "confirm": "Neues Passwort (Bestätigung)",
+      "button": "Ändern"
+    },
+    "fingerprint_detail": {
+      "enable": "Fingerabdruckscanner aktivieren",
+      "save": "Einstellung speichern",
+      "done": "Gespeichert",
+      "error": {
+        "failed_save": "Deaktivierung fehlgeschlagen",
+        "not_supported": "Ihr Gerät hat keinen Fingerabdruckscanner"
+      }
+    },
+    "backup": {
+      "show_passphrase": "Passphrase anzeigen",
+      "hide_passphrase": "Passphrase verbergen"
+    },
+    "delete": {
+      "description": "Die Wallet-Daten werden vom Gerät gelöscht. Das Wallet kann mit Passphrases wiederhergestellt werden.",
+      "confirm_make_backup": "Ich habe die Passphrase aufgeschrieben.",
+      "confirm_delete": "Die Wallet-Daten werden vom Gerät gelöscht.",
+      "do_delete": "Löschen",
+      "complete": "Wallet-Daten gelöscht"
+    },
+    "about_detail": {
+      "name": "App-Name",
+      "version": "Version",
+      "bugreport": "Fehler melden",
+      "open_bugreport_form": "Eingabeformular öffnen"
+    }
+  }
+}

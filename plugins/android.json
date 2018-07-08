@@ -1,0 +1,34 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "vipstarcoin",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "work.nope.vipstarcoin.wallet"
+    },
+    "cordova-plugin-keychain-touch-id": {
+      "PACKAGE_NAME": "work.nope.vipstarcoin.wallet"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "work.nope.vipstarcoin.wallet"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "work.nope.vipstarcoin.wallet"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "work.nope.vipstarcoin.wallet"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    }
+  },
+  "dependent_plugins": {}
+}

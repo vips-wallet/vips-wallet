@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="1" id="jp.vipstarcoin.wallet" ios-CFBundleVersion="1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="LaunchMyApp">
+        <param name="android-package" value="nl.xservices.plugins.LaunchMyApp" />
+    </feature>
+    <feature name="TouchID">
+        <param name="android-package" value="com.cordova.plugin.android.fingerprintauth.FingerprintAuth" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Permissions">
+        <param name="android-package" value="com.android.plugins.Permissions" />
+    </feature>
+    <name>VIPS Wallet</name>
+    <description>VIPSTARCOIN light wallet</description>
+    <author email="from.kyushu.island@gmail.com" href="https://github.com/vips-wallet">
+        VIPS Wallet Dev Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="vipstarcoin:*" />
+    <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
+    <icon density="mdpi" src="res/icon/android/drawable-mdpi-icon.png" />
+    <icon density="hdpi" src="res/icon/android/drawable-hdpi-icon.png" />
+    <icon density="xhdpi" src="res/icon/android/drawable-xhdpi-icon.png" />
+    <icon density="xxhdpi" src="res/icon/android/drawable-xxhdpi-icon.png" />
+    <icon density="xxxhdpi" src="res/icon/android/drawable-xxxhdpi-icon.png" />
+    <splash density="land-ldpi" src="res/screen/android/drawable-land-ldpi-screen.png" />
+    <splash density="land-mdpi" src="res/screen/android/drawable-land-mdpi-screen.png" />
+    <splash density="land-hdpi" src="res/screen/android/drawable-land-hdpi-screen.png" />
+    <splash density="land-xhdpi" src="res/screen/android/drawable-land-xhdpi-screen.png" />
+    <splash density="land-xxhdpi" src="res/screen/android/drawable-land-xxhdpi-screen.png" />
+    <splash density="land-xxxhdpi" src="res/screen/android/drawable-land-xxxhdpi-screen.png" />
+    <splash density="port-ldpi" src="res/screen/android/drawable-port-ldpi-screen.png" />
+    <splash density="port-mdpi" src="res/screen/android/drawable-port-mdpi-screen.png" />
+    <splash density="port-hdpi" src="res/screen/android/drawable-port-hdpi-screen.png" />
+    <splash density="port-xhdpi" src="res/screen/android/drawable-port-xhdpi-screen.png" />
+    <splash density="port-xxhdpi" src="res/screen/android/drawable-port-xxhdpi-screen.png" />
+    <splash density="port-xxxhdpi" src="res/screen/android/drawable-port-xxxhdpi-screen.png" />
+    <allow-intent href="market:*" />
+    <config-file parent="/*" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.CAMERA" android:required="false" />
+        <uses-feature android:name="android.hardware.camera" android:required="false" />
+        <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+    </config-file>
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="StatusBarStyle" value="default" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-targetSdkVersion" value="27" />
+</widget>
