@@ -461,7 +461,9 @@ export default {
         })
       }
 
-      this.$store.state.account.buildTransactionData(this.address, new BigNumber(this.amount), opt).then(({txBuilder, addressPath, fee}) => {
+      utils.wait().then(() => {
+        return this.$store.state.account.buildTransactionData(this.address, new BigNumber(this.amount), opt)
+      }).then(({txBuilder, addressPath, fee}) => {
         this.txBuilder = txBuilder
         this.addressPath = addressPath
         this.txfee = (new BigNumber(fee)).dividedBy(1e8).dp(8).toNumber()
@@ -492,20 +494,21 @@ export default {
     send () {
       this.sending = true
       try {
-        let signed = this.$store.state.account.signTransaction(this.txBuilder, this.addressPath, this.password)
-        console.log(signed.toHex())
-        this.password = ''
-        this.$store.state.account.sendRawTransaction(signed.toHex()).then(resp => {
-          document.getElementById('txdetail').scrollTop = 0
+        utils.wait().then(() => {
+          let signed = this.$store.state.account.signTransaction(this.txBuilder, this.addressPath, this.password)
+          console.log(signed.toHex())
+          this.password = ''
+          return this.$store.state.account.sendRawTransaction(signed.toHex())
+        }).then(resp => {
           this.clear()
           this.txid = resp.txid
           this.success = true
         }).catch(error => {
-          document.getElementById('txdetail').scrollTop = 0
           this.send_error = true
           this.error_detail = error.message
           console.error(error)
         }).finally(() => {
+          document.getElementById('txdetail').scrollTop = 0
           this.sending = false
           this.clear()
         })
