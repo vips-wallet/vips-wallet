@@ -58,7 +58,7 @@
     <v-footer fixed height="auto">
       <v-flex xs12 sm8 offset-sm2>
         <v-layout row wrap justify-center>
-          <v-btn block :disabled="!complete" @click.native="finish()" v-t="'common.finish'"></v-btn>
+          <v-btn block :disabled="!complete" @click.native="finish()" color="primary" v-t="'common.finish'"></v-btn>
         </v-layout>
       </v-flex>
     </v-footer>

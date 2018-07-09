@@ -115,6 +115,12 @@ function verifyTouchID () {
   })
 }
 
+function wait (msec = 200) {
+  return new Promise(resolve => {
+    setTimeout(resolve, msec)
+  })
+}
+
 export default {
   walletExists: walletExists,
   walletLoaded: walletLoaded,
@@ -126,5 +132,6 @@ export default {
   getQRCodeDataUri: getQRCodeDataUri,
   copyClipBoard: copyClipBoard,
   checkTouchID: checkTouchID,
-  verifyTouchID: verifyTouchID
+  verifyTouchID: verifyTouchID,
+  wait: wait
 }

@@ -58,7 +58,7 @@
     <v-footer fixed height="auto">
       <v-flex xs12 sm8 offset-sm2>
         <v-layout row wrap justify-center>
-          <v-btn block :disabled="!complete" @click.native="generate" v-t="'common.next'"></v-btn>
+          <v-btn block :loading="generating" :disabled="!complete" @click.native="generate" color="primary" v-t="'common.next'"></v-btn>
         </v-layout>
       </v-flex>
     </v-footer>
@@ -73,6 +73,7 @@
 
 <script>
 import bip39 from 'bip39'
+import utils from '@/utils/utils'
 
 export default {
   name: 'Create',
@@ -107,10 +108,14 @@ export default {
   },
   methods: {
     generate () {
-      this.$store.dispatch('importMnemonic', {
-        mnemonic: this.mnemonic,
-        password: this.password
+      this.generating = true
+      utils.wait().then(() => {
+        return this.$store.dispatch('importMnemonic', {
+          mnemonic: this.mnemonic,
+          password: this.password
+        })
       }).then(() => {
+        this.generating = false
         this.$router.push('backup')
       }).catch(error => {
         console.error(error)
