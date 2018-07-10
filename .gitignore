@@ -20,5 +20,7 @@ selenium-debug.log
 platforms/android/
 plugins/*/
 
-www/css/app.*
-www/js/app.*
+www/*/
+www/*.html
+www/*.js
+www/*.json
