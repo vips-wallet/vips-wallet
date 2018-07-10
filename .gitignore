@@ -16,3 +16,9 @@ selenium-debug.log
 *.njsproj
 *.sln
 *.swp
+
+platforms/android/
+plugins/*/
+
+www/css/app.*
+www/js/app.*
