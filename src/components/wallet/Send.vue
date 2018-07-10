@@ -326,6 +326,7 @@ export default {
   methods: {
     walletInfoUpdated () {
       this.balance = this.$store.state.walletInfo.balance
+      this.fiatRate = this.$store.state.price
       this.$store.state.account.estimateFee().then(feeRate => {
         let fee = new BigNumber(feeRate)
         this.txfee = fee.dividedBy(1e8).toNumber(8)
