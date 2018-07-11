@@ -15,7 +15,8 @@
     "camera_not_permitted": "Zugriff auf Kamera muss genehmigt werden.",
     "copy_clipboard": "Kopiert",
     "currency_is_not_supported": "Diese Währung ({amountType}) wird nicht unterstützt.",
-    "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI"
+    "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI",
+    "actions": "Aktionen"
   },
   "message": {
     "title": "VIPSTAR☆COIN",
@@ -76,9 +77,10 @@
     "fiat": "In gesetzlicher Währung",
     "fiat_code": "Gesetzliche Währung",
     "message": "Nachricht",
+    "share": "Teilen Nukumolink",
     "error": {
-      "invalid_amount": "Falsche Eingabe des Betrages",
-      "invalid_fiat": "Falsche Eingabe der gesetzlichen Währung"
+      "invalid_amount": "falsche eingabe des betrages",
+      "invalid_fiat": "falsche Eingabe der gesetzlichen Währung"
     }
   },
   "send": {

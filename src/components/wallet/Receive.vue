@@ -91,6 +91,41 @@
         </v-container>
       </v-card>
     </v-flex>
+    <v-fab-transition>
+      <v-btn
+        color="primary"
+        dark
+        small
+        fixed
+        bottom
+        right
+        fab
+        @click="sheet = true"
+      >
+        <v-icon>more_vert</v-icon>
+      </v-btn>
+    </v-fab-transition>
+    <v-bottom-sheet v-model="sheet">
+      <v-list>
+        <v-subheader v-t="'common.actions'"></v-subheader>
+        <v-list-tile @click="share()" v-if="canShare">
+          <v-list-tile-avatar>
+            <v-avatar tile>
+              <v-icon>share</v-icon>
+            </v-avatar>
+          </v-list-tile-avatar>
+          <v-list-tile-title v-t="'receive.share'"></v-list-tile-title>
+        </v-list-tile>
+        <v-list-tile @click="copyURIClipBoard()">
+          <v-list-tile-avatar>
+            <v-avatar tile>
+              <v-icon>file_copy</v-icon>
+            </v-avatar>
+          </v-list-tile-avatar>
+          <v-list-tile-title v-t="'receive.copy'"></v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-bottom-sheet>
     <v-snackbar
       bottom
       v-model="snackbar"
@@ -147,7 +182,9 @@ export default {
       amountType: this.$store.state.fiatCurrency,
       snackbar: false,
       snackbar_timeout: 4000,
-      dust: new BigNumber(CONST.DUST_RELAY_TX_FEE)
+      sheet: false,
+      dust: new BigNumber(CONST.DUST_RELAY_TX_FEE),
+      canShare: !!(window.cordova)
     }
   },
   mounted () {
@@ -159,6 +196,7 @@ export default {
 
     this.$globalEvent.$on('refresh-button-pushed', this.refreshButtonPushed)
     this.$globalEvent.$on('delete-button-pushed', this.deleteButtonPushed)
+    this.$globalEvent.$on('share-button-pushed', this.shareButtonPushed)
 
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: true,
@@ -168,8 +206,9 @@ export default {
     this.$globalEvent.$emit('toolbar-title', this.$t('receive.description'))
   },
   destroyed () {
-    this.$globalEvent.$on('refresh-button-pushed', this.refreshButtonPushed)
+    this.$globalEvent.$off('refresh-button-pushed', this.refreshButtonPushed)
     this.$globalEvent.$off('delete-button-pushed', this.deleteButtonPushed)
+    this.$globalEvent.$off('share-button-pushed', this.shareButtonPushed)
   },
   methods: {
     refreshButtonPushed () {
@@ -197,6 +236,22 @@ export default {
         })
       })
     },
+    share () {
+      let opt = {}
+      if (this.amount !== '0') opt.amount = this.amount
+      if (this.message !== '') opt.message = this.message
+      if (this.useFiat) {
+        opt.amountType = this.amountType
+        opt.amountExt = this.fiat
+      }
+      let uri = utils.encodeURI(this.address, opt)
+      if (window.cordova) {
+        window.plugins.socialsharing.share(uri)
+      } else {
+        console.log(uri)
+      }
+      this.sheet = false
+    },
     copyURIClipBoard () {
       let opt = {}
       if (this.amount !== '0') opt.amount = this.amount
@@ -208,6 +263,7 @@ export default {
       if (utils.copyClipBoard(utils.encodeURI(this.address, opt))) {
         this.snackbar = true
       }
+      this.sheet = false
     },
     checkValidNumber (n, decimals = -1) {
       let regexp = /^([1-9]\d*|0)(\.\d+)?$/
