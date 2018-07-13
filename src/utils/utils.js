@@ -3,6 +3,7 @@ import store from '@/store'
 import axios from 'axios'
 import qrcode from 'qrcode'
 import bip21 from 'bip21'
+import jsQR from 'jsqr'
 
 let openURICallback = null
 
@@ -121,6 +122,90 @@ function wait (msec = 200) {
   })
 }
 
+function openQRCodeImage () {
+  const img = new Image()
+  const canvas = document.createElement('canvas')
+  return openImageFile().then(data => {
+    return new Promise((resolve, reject) => {
+      img.addEventListener('load', () => {
+        resolve()
+      })
+      img.src = data
+    })
+  }).then(() => {
+    canvas.width = img.naturalWidth
+    canvas.height = img.naturalHeight
+
+    let ctx = canvas.getContext('2d')
+    ctx.drawImage(img, 0, 0)
+    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+    return jsQR(imageData.data, canvas.width, canvas.height)
+  })
+}
+
+function openImageFile () {
+  let promise = Promise.reject(new Error('unsupported device'))
+  if (window.cordova) {
+    promise = openImageFileForMobile()
+  } else {
+    promise = openFileForBrowser()
+  }
+  return promise
+}
+
+function openImageFileForMobile () {
+  return new Promise((resolve, reject) => {
+    let opt = {
+      destinationType: navigator.camera.DestinationType.FILE_URI,
+      sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+      mediaType: navigator.camera.MediaType.PICTURE
+    }
+    navigator.camera.getPicture(resolve, reject, opt)
+  }).then(uri => {
+    return new Promise((resolve, reject) => {
+      window.resolveLocalFileSystemURL(
+        uri,
+        (fileEntry) => {
+          fileEntry.file(resolve)
+        },
+        reject
+      )
+    })
+  }).then(file => {
+    let reader = new FileReader()
+    return new Promise((resolve, reject) => {
+      reader.onload = (e) => {
+        resolve(e.target.result)
+      }
+      reader.readAsDataURL(file)
+    })
+  })
+}
+
+function openFileForBrowser () {
+  let file = document.createElement('input')
+  file.type = 'file'
+  return new Promise((resolve, reject) => {
+    file.onchange = (ev) => {
+      let files = ev.target.files || ev.dataTransfer.files
+      if (files.length) {
+        resolve(files[0])
+      } else {
+        reject(new Error('missing file'))
+      }
+    }
+    file.click()
+  }).then(file => {
+    let reader = new FileReader()
+    return new Promise((resolve, reject) => {
+      reader.onload = (e) => {
+        resolve(e.target.result)
+      }
+      reader.readAsDataURL(file)
+    })
+  })
+}
+
 export default {
   walletExists: walletExists,
   walletLoaded: walletLoaded,
@@ -133,5 +218,9 @@ export default {
   copyClipBoard: copyClipBoard,
   checkTouchID: checkTouchID,
   verifyTouchID: verifyTouchID,
-  wait: wait
+  wait: wait,
+  openQRCodeImage: openQRCodeImage,
+  openImageFile: openImageFile,
+  openImageFileForMobile: openImageFileForMobile,
+  openFileForBrowser: openFileForBrowser
 }

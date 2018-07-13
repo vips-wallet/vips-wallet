@@ -17,7 +17,16 @@ const constants = {
     'NZD', 'PHP', 'PKR', 'PLN', 'RUB',
     'SEK', 'SGD', 'THB', 'TRY', 'TWD',
     'USD', 'ZAR'
-  ]
+  ],
+  QRCODE_CAMERA_CONFIG: {
+    audio: false,
+    video: {
+      facingMode: { ideal: 'environment' },
+      width: { min: 360, ideal: 680, max: 1920 },
+      height: { min: 240, ideal: 480, max: 1080 },
+      frameRate: { min: 10, ideal: 25 }
+    }
+  }
 }
 
 export default constants

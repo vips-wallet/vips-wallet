@@ -7,7 +7,17 @@
           @init="onCameraInit"
           @decode="onCameraDecode"
           :paused="paused"
-        ></qrcode-reader>
+          :video-constraints="camera_config"
+        >
+          <v-btn
+            block
+            absolute
+            bottom
+            color="primary"
+            @click.stop="openFile"
+            v-t="'common.load_file'"
+          ></v-btn>
+        </qrcode-reader>
         <v-layout row wrap justify-center v-else-if="!loaded">
           <div class="mt-5">
             <v-progress-circular indeterminate :size="50" color="amber"></v-progress-circular>
@@ -275,7 +285,8 @@ export default {
       dust: new BigNumber(CONST.DUST_RELAY_TX_FEE),
       receiver_message: '',
       building: false,
-      sending: false
+      sending: false,
+      camera_config: CONST.QRCODE_CAMERA_CONFIG
     }
   },
   mounted () {
@@ -549,6 +560,21 @@ export default {
         this.$globalEvent.$emit('camera-finished')
       }
       this.show_camera = !this.show_camera
+    },
+    openFile () {
+      utils.openQRCodeImage().then(code => {
+        this.$store.commit('setURI', code.data)
+        if (this.$store.state.uri) {
+          this.waitSetURI()
+        }
+      }).catch(error => {
+        this.$store.commit('setURI', null)
+        this.$globalEvent.$emit('open-error-dialog', this.$t('common.invalid_image'))
+        console.error(error)
+      }).finally(() => {
+        this.$globalEvent.$emit('camera-finished')
+        this.show_camera = false
+      })
     },
     onCameraInit (promise) {
       promise.then(() => {

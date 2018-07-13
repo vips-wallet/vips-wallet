@@ -1,12 +1,23 @@
 <template>
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
-      <qrcode-reader
-        v-if="show_camera"
-        @init="onCameraInit"
-        @decode="onCameraDecode"
-        :paused="paused"
-      ></qrcode-reader>
+      <v-layout row wrap justify-center v-if="show_camera">
+        <qrcode-reader
+          @init="onCameraInit"
+          @decode="onCameraDecode"
+          :paused="paused"
+          :video-constraints="camera_config"
+        >
+          <v-btn
+            block
+            absolute
+            bottom
+            color="primary"
+            @click.stop="openFile"
+            v-t="'common.load_file'"
+          ></v-btn>
+        </qrcode-reader>
+      </v-layout>
       <v-layout row wrap justify-center v-if="!loaded">
         <div class="mt-5">
           <v-progress-circular indeterminate :size="50" color="amber"></v-progress-circular>
@@ -91,7 +102,8 @@ export default {
       error_detail: '',
       show: false,
       show_camera: false,
-      cmc_url: CONST.CMC_URL
+      cmc_url: CONST.CMC_URL,
+      camera_config: CONST.QRCODE_CAMERA_CONFIG
     }
   },
   mounted () {
@@ -160,6 +172,21 @@ export default {
       }
       this.show_camera = !this.show_camera
     },
+    openFile () {
+      utils.openQRCodeImage().then(code => {
+        this.$store.commit('setURI', code.data)
+        if (this.$store.state.uri) {
+          this.$router.push('/wallet/send')
+        }
+      }).catch(error => {
+        this.$store.commit('setURI', null)
+        this.$globalEvent.$emit('open-error-dialog', this.$t('common.invalid_image'))
+        console.error(error)
+      }).finally(() => {
+        this.$globalEvent.$emit('camera-finished')
+        this.show_camera = false
+      })
+    },
     onCameraInit (promise) {
       promise.then(() => {
         this.paused = false
@@ -195,6 +222,8 @@ export default {
         ev.preventDefault()
         navigator.app.exitApp()
       }
+    },
+    parseQRCodeImage (data) {
     }
   }
 }

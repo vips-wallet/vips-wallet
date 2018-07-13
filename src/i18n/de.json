@@ -16,7 +16,9 @@
     "copy_clipboard": "Kopiert",
     "currency_is_not_supported": "Diese Währung ({amountType}) wird nicht unterstützt.",
     "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI",
-    "actions": "Aktionen"
+    "actions": "Aktionen",
+    "load_file": "Lade von der Datei",
+    "invalid_image": "Beim Laden ist ein Fehler aufgetreten"
   },
   "message": {
     "title": "VIPSTAR☆COIN",
