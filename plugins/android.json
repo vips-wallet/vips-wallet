@@ -34,6 +34,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     }
   },
   "dependent_plugins": {

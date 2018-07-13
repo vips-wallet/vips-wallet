@@ -61,5 +61,6 @@
     <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <engine name="android" spec="^6.4.0" />
 </widget>
