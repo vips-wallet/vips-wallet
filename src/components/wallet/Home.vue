@@ -1,23 +1,12 @@
 <template>
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
-      <v-layout row wrap justify-center v-if="show_camera">
-        <qrcode-reader
-          @init="onCameraInit"
-          @decode="onCameraDecode"
-          :paused="paused"
-          :video-constraints="camera_config"
-        >
-          <v-btn
-            block
-            absolute
-            bottom
-            color="primary"
-            @click.stop="openFile"
-            v-t="'common.load_file'"
-          ></v-btn>
-        </qrcode-reader>
-      </v-layout>
+      <scanner
+        v-if="show_camera"
+        @initError="onCameraInitError"
+        @loadFileError="onLoadQRCodeImageError"
+        @finish="onCameraFinish"
+      ></scanner>
       <v-layout row wrap justify-center v-if="!loaded">
         <div class="mt-5">
           <v-progress-circular indeterminate :size="50" color="amber"></v-progress-circular>
@@ -88,14 +77,17 @@ div.balance-info span.text{
 </style>
 
 <script>
+import Scanner from '@/components/Scanner'
 import utils from '@/utils/utils'
 import CONST from '@/utils/const'
 
 export default {
   name: 'WalletHome',
+  components: {
+    Scanner
+  },
   data () {
     return {
-      paused: false,
       loaded: false,
       update_error: false,
       camera_error: false,
@@ -166,7 +158,6 @@ export default {
       this.$globalEvent.$emit('do-update-wallet-info')
     },
     cameraButtonPushed () {
-      this.paused = true
       if (this.show_camera) {
         this.$globalEvent.$emit('camera-finished')
       }
@@ -187,29 +178,28 @@ export default {
         this.show_camera = false
       })
     },
-    onCameraInit (promise) {
-      promise.then(() => {
-        this.paused = false
-      }).catch(error => {
-        this.paused = true
-        this.show_camera = false
-        this.camera_error = true
-        this.error_detail = error.message
-        console.error(error)
-      })
-    },
-    onCameraDecode (content) {
-      try {
-        this.$store.commit('setURI', content)
-      } catch (error) {
-        this.$store.commit('setURI', null)
-        this.camera_error = true
-        this.error_detail = error.message
-        console.error(error)
-      }
-      this.paused = true
+    onCameraInitError (error) {
       this.show_camera = false
-      this.$globalEvent.$emit('camera-finished')
+      this.camera_error = true
+      this.error_detail = error.message
+      console.error(error)
+    },
+    onCameraDecodeError (error) {
+      this.show_camera = false
+      this.camera_error = true
+      this.error_detail = error.message
+      this.$store.commit('setURI', null)
+      console.error(error)
+    },
+    onLoadQRCodeImageError (error) {
+      this.show_camera = false
+      this.$globalEvent.$emit('open-error-dialog', this.$t('common.invalid_image'))
+      this.$store.commit('setURI', null)
+      console.error(error)
+    },
+    onCameraFinish (data) {
+      this.show_camera = false
+      this.$store.commit('setURI', data)
       if (this.$store.state.uri) {
         this.$router.push('/wallet/send')
       }
