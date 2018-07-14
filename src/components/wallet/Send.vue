@@ -2,22 +2,12 @@
   <v-layout justify center>
     <v-layout row>
       <v-flex xs12 sm10 offset-sm1 md6 offset-md3>
-        <qrcode-reader
+        <scanner
           v-if="show_camera"
-          @init="onCameraInit"
-          @decode="onCameraDecode"
-          :paused="paused"
-          :video-constraints="camera_config"
-        >
-          <v-btn
-            block
-            absolute
-            bottom
-            color="primary"
-            @click.stop="openFile"
-            v-t="'common.load_file'"
-          ></v-btn>
-        </qrcode-reader>
+          @initError="onCameraInitError"
+          @loadFileError="onLoadQRCodeImageError"
+          @finish="onCameraFinish"
+        ></scanner>
         <v-layout row wrap justify-center v-else-if="!loaded">
           <div class="mt-5">
             <v-progress-circular indeterminate :size="50" color="amber"></v-progress-circular>
@@ -247,6 +237,7 @@ div.slider__thumb.primary {
 </style>
 
 <script>
+import Scanner from '@/components/Scanner'
 import {BigNumber} from 'bignumber.js'
 import {address, messageutil, NETWORKS} from 'vipstarcoinjs-wallet-core'
 import CONST from '@/utils/const'
@@ -254,6 +245,9 @@ import utils from '@/utils/utils'
 
 export default {
   name: 'WalletSend',
+  components: {
+    Scanner
+  },
   data () {
     return {
       paused: false,
@@ -561,46 +555,30 @@ export default {
       }
       this.show_camera = !this.show_camera
     },
-    openFile () {
-      utils.openQRCodeImage().then(code => {
-        this.$store.commit('setURI', code.data)
-        if (this.$store.state.uri) {
-          this.waitSetURI()
-        }
-      }).catch(error => {
-        this.$store.commit('setURI', null)
-        this.$globalEvent.$emit('open-error-dialog', this.$t('common.invalid_image'))
-        console.error(error)
-      }).finally(() => {
-        this.$globalEvent.$emit('camera-finished')
-        this.show_camera = false
-      })
-    },
-    onCameraInit (promise) {
-      promise.then(() => {
-        this.paused = false
-      }).catch(error => {
-        this.paused = true
-        this.show_camera = false
-        this.camera_error = true
-        this.error_detail = error.message
-        console.error(error)
-      })
-    },
-    onCameraDecode (content) {
-      try {
-        this.$store.commit('setURI', content)
-      } catch (error) {
-        this.$store.commit('setURI', null)
-        this.camera_error = true
-        this.error_detail = error.message
-        console.error(error)
-      }
-      this.paused = true
+    onCameraInitError (error) {
       this.show_camera = false
-      this.$globalEvent.$emit('camera-finished')
+      this.camera_error = true
+      this.error_detail = error.message
+      console.error(error)
+    },
+    onCameraDecodeError (error) {
+      this.show_camera = false
+      this.camera_error = true
+      this.error_detail = error.message
+      this.$store.commit('setURI', null)
+      console.error(error)
+    },
+    onLoadQRCodeImageError (error) {
+      this.show_camera = false
+      this.$globalEvent.$emit('open-error-dialog', this.$t('common.invalid_image'))
+      this.$store.commit('setURI', null)
+      console.error(error)
+    },
+    onCameraFinish (data) {
+      this.show_camera = false
+      this.$store.commit('setURI', data)
       if (this.$store.state.uri) {
-        this.setURI()
+        this.waitSetURI()
       }
     },
     toFiat (amount) {
