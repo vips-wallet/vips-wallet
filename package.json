@@ -17,7 +17,7 @@
     "ios": "npm run build && cordova run ios",
     "android": "npm run build && cordova run android --device",
     "android:vm": "npm run build && cordova run android",
-    "android:release": "npm run build && cordova build android --release",
+    "android:release": "cordova clean && npm run build && cordova build android --release",
     "clean": "cordova clean",
     "clean:android": "cordova clean android"
   },
