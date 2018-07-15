@@ -10,6 +10,16 @@
         block
         absolute
         bottom
+        v-if="paused"
+        color="primary"
+        @click.stop="rescan()"
+        v-t="'common.rescan'"
+      ></v-btn>
+      <v-btn
+        block
+        absolute
+        bottom
+        v-else
         color="primary"
         @click.stop="openFile"
         v-t="'common.load_file'"
@@ -58,6 +68,9 @@ export default {
       }).finally(() => {
         this.$globalEvent.$emit('camera-finished')
       })
+    },
+    rescan () {
+      this.paused = false
     }
   }
 }
