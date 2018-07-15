@@ -210,6 +210,22 @@ function openFileForBrowser () {
   })
 }
 
+function base64ToBlob (base64) {
+  let bin = atob(base64.replace(/^.*,/, ''))
+  let buf = new Uint8Array(bin.length)
+  for (var i = 0; i < bin.length; i++) {
+    buf[i] = bin.charCodeAt(i)
+  }
+
+  let blob
+  try {
+    blob = new Blob([buf.buffer], {type: 'image/png'})
+  } catch (e) {
+    return false
+  }
+  return blob
+}
+
 export default {
   walletExists: walletExists,
   walletLoaded: walletLoaded,
@@ -227,5 +243,6 @@ export default {
   openQRCodeImage: openQRCodeImage,
   openImageFile: openImageFile,
   openImageFileForMobile: openImageFileForMobile,
-  openFileForBrowser: openFileForBrowser
+  openFileForBrowser: openFileForBrowser,
+  base64ToBlob: base64ToBlob
 }
