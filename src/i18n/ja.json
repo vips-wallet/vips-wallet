@@ -13,10 +13,12 @@
     "error": "エラー",
     "password_mismatch": "パスワードが間違っています",
     "camera_not_permitted": "カメラを使用する権限が必要です",
+    "camera_initialize_error": "カメラの初期化に失敗しました",
     "copy_clipboard": "コピーしました",
     "currency_is_not_supported": "指定の通貨({amountType})は非対応です",
     "invalid_uri_format": "有効なヌクモリンクではありません",
     "actions": "アクション",
+    "rescan": "再スキャン",
     "load_file": "ファイルから読み込み",
     "invalid_image": "読み込み時にエラーが発生しました"
   },
@@ -51,6 +53,9 @@
     "restore_phrase": "パスフレーズ",
     "restore_phrase_description": "復元するウォレットのパスフレーズを入力してください。",
     "restore_qrcode": "QRコード",
+    "qrcode_description": "",
+    "reset_qrcode": "別のQRコードを選択",
+    "qrcode_password_description": "以前のウォレットで指定したパスワードを入力してください。",
     "import_failed": "ウォレットの復元に失敗しました。"
   },
   "home": {
@@ -195,7 +200,14 @@
     },
     "backup": {
       "show_passphrase": "パスフレーズを表示する",
-      "hide_passphrase": "パスフレーズを隠す"
+      "hide_passphrase": "パスフレーズを隠す",
+      "qrcode": "QRコード",
+      "save_qrcode": "QRコードを保存",
+      "passphrase": "パスフレーズ",
+      "save_qrcode": "QRコードを保存しました",
+      "error": {
+        "save_qrcode": "QRコードの保存に失敗しました"
+      }
     },
     "delete": {
       "description": "ウォレットデータを端末から削除します。パスフレーズを再び入力することで復元することが出来ます。",

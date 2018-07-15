@@ -13,10 +13,12 @@
     "error": "Fehler",
     "password_mismatch": "Passwort inkorrekt",
     "camera_not_permitted": "Zugriff auf Kamera muss genehmigt werden.",
+    "camera_initialize_error": "Kamerainitialisierung fehlgeschlagen",
     "copy_clipboard": "Kopiert",
     "currency_is_not_supported": "Diese Währung ({amountType}) wird nicht unterstützt.",
     "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI",
     "actions": "Aktionen",
+    "rescan": "Erneut scannen",
     "load_file": "Lade von der Datei",
     "invalid_image": "Beim Laden ist ein Fehler aufgetreten"
   },
@@ -51,6 +53,7 @@
     "restore_phrase": "Passphrase",
     "restore_phrase_description": "Bitte die Passphrase für das zu wiederherstellende Wallet eingeben.",
     "restore_qrcode": "QR-Code",
+    "qrcode_password_description": "Bitte geben Sie das Passwort ein, das Sie in der vorherigen Brieftasche angegeben haben.",
     "import_failed": "Wiederherstellung fehlgeschlagen"
   },
   "home": {
@@ -194,7 +197,14 @@
     },
     "backup": {
       "show_passphrase": "Passphrase anzeigen",
-      "hide_passphrase": "Passphrase verbergen"
+      "hide_passphrase": "Passphrase verbergen",
+      "qrcode": "QR-Code",
+      "save_qrcode": "QR-Code speichern",
+      "passphrase": "Passphrase",
+      "save_qrcode": "QR-Code gespeichert",
+      "error": {
+        "save_qrcode": "Fehler beim Speichern des QR-Codes"
+      }
     },
     "delete": {
       "description": "Die Wallet-Daten werden vom Gerät gelöscht. Das Wallet kann mit Passphrases wiederhergestellt werden.",

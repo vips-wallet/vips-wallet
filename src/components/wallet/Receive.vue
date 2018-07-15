@@ -229,7 +229,7 @@ export default {
         opt.amountType = this.amountType
         opt.amountExt = this.fiat
       }
-      return utils.getQRCodeDataUri(this.address, opt).then((uri) => {
+      return utils.getAddressQRCode(this.address, opt).then((uri) => {
         return new Promise((resolve, reject) => {
           this.qrcodeDataUri = uri
           resolve()
