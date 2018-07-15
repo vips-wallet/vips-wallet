@@ -194,7 +194,14 @@
     },
     "backup": {
       "show_passphrase": "Passphrase anzeigen",
-      "hide_passphrase": "Passphrase verbergen"
+      "hide_passphrase": "Passphrase verbergen",
+      "qrcode": "QR-Code",
+      "save_qrcode": "QR-Code speichern",
+      "passphrase": "Passphrase",
+      "save_qrcode": "QR-Code gespeichert",
+      "error": {
+        "save_qrcode": "Fehler beim Speichern des QR-Codes"
+      }
     },
     "delete": {
       "description": "Die Wallet-Daten werden vom Gerät gelöscht. Das Wallet kann mit Passphrases wiederhergestellt werden.",

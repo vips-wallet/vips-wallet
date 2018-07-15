@@ -195,7 +195,14 @@
     },
     "backup": {
       "show_passphrase": "パスフレーズを表示する",
-      "hide_passphrase": "パスフレーズを隠す"
+      "hide_passphrase": "パスフレーズを隠す",
+      "qrcode": "QRコード",
+      "save_qrcode": "QRコードを保存",
+      "passphrase": "パスフレーズ",
+      "save_qrcode": "QRコードを保存しました",
+      "error": {
+        "save_qrcode": "QRコードの保存に失敗しました"
+      }
     },
     "delete": {
       "description": "ウォレットデータを端末から削除します。パスフレーズを再び入力することで復元することが出来ます。",

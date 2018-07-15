@@ -194,7 +194,14 @@
     },
     "backup": {
       "show_passphrase": "Show Passphrase",
-      "hide_passphrase": "Hide Passphrase"
+      "hide_passphrase": "Hide Passphrase",
+      "qrcode": "QR Code",
+      "save_qrcode": "Save QR Code",
+      "passphrase": "Passphrase",
+      "save_qrcode": "QR Code saved",
+      "error": {
+        "save_qrcode": "Failed to save QR Code"
+      }
     },
     "delete": {
       "description": "Delete wallet data from device. You can restore by re-enterting pass phrase",
