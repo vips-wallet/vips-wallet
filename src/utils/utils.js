@@ -47,11 +47,15 @@ function handleOpenURICallback (callback) {
   openURICallback = callback
 }
 
-function getQRCodeDataUri (addr, opt) {
+function getAddressQRCode (addr, opt) {
   let uri = bip21.encode(addr, opt, CONST.BIP21URN)
+  return getQRCode(uri)
+}
+
+function getQRCode (data) {
   return new Promise((resolve, reject) => {
     qrcode.toDataURL(
-      uri,
+      data,
       {
         errorCorrectionLevel: 'M',
         type: 'image/png'
@@ -214,7 +218,8 @@ export default {
   encodeURI: encodeURI,
   handleOpenURI: handleOpenURI,
   handleOpenURICallback: handleOpenURICallback,
-  getQRCodeDataUri: getQRCodeDataUri,
+  getAddressQRCode: getAddressQRCode,
+  getQRCode: getQRCode,
   copyClipBoard: copyClipBoard,
   checkTouchID: checkTouchID,
   verifyTouchID: verifyTouchID,
