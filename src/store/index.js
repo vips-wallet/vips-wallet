@@ -97,6 +97,16 @@ const store = new Vuex.Store({
         return Promise.reject(error)
       })
     },
+    async importEntropy ({commit, state}, {entropy, seed, password}) {
+      return new Promise((resolve, reject) => {
+        commit('setWallet', WalletGroup.generate(entropy, seed, state.network))
+        commit('setCurrentAccount', state.walletGroup.createAccount('Default', 44, 0, password))
+        state.walletGroup.defaultAccount = 'Default'
+        resolve()
+      }).catch(error => {
+        return Promise.reject(error)
+      })
+    },
     async initialize ({dispatch, commit, state}, json) {
       let promise = Promise.resolve()
       if (state.walletGroup === null) {
