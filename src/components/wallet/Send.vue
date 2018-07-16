@@ -368,6 +368,10 @@ export default {
         return
       }
       this.address = uri.address
+      this.focused = ''
+      this.amount = ''
+      this.fiat = ''
+
       let amount = ''
       if (uri.options.amountExt && uri.options.amountType) {
         if (CONST.CURRENCIES.includes(uri.options.amountType)) {
