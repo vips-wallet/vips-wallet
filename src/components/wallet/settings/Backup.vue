@@ -82,7 +82,7 @@
       v-model="snackbar"
       :timeout="snackbar_timeout"
     >
-      {{ $t('settings.backup.save_qrcode') }}
+      {{ $t('settings.backup.saved_qrcode') }}
       <v-btn flat @click="snackbar = false" v-t="'common.close'">
       </v-btn>
     </v-snackbar>

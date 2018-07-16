@@ -204,7 +204,7 @@
       "qrcode": "QRコード",
       "save_qrcode": "QRコードを保存",
       "passphrase": "パスフレーズ",
-      "save_qrcode": "QRコードを保存しました",
+      "saved_qrcode": "QRコードを保存しました",
       "error": {
         "save_qrcode": "QRコードの保存に失敗しました"
       }

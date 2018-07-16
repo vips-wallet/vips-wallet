@@ -201,7 +201,7 @@
       "qrcode": "QR Code",
       "save_qrcode": "Save QR Code",
       "passphrase": "Passphrase",
-      "save_qrcode": "QR Code saved",
+      "saved_qrcode": "QR Code saved",
       "error": {
         "save_qrcode": "Failed to save QR Code"
       }
