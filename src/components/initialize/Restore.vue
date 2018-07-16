@@ -67,7 +67,7 @@
         </v-tab-item>
         <v-tab-item key="qrcode">
           <v-card flat>
-            <v-layout row>
+            <v-layout row class="mb-3">
               <v-flex xs10 sm8 offset-sm2 offset-xs1>
                 <v-card flat>
                   <v-card flat>
@@ -78,6 +78,13 @@
                       @finish="onCameraFinish"
                     ></scanner>
                   </v-card>
+                </v-card>
+              </v-flex>
+            </v-layout>
+            <v-layout row v-if="qrcode_data.entropy && qrcode_data.seed">
+              <v-flex xs10 sm8 offset-sm2 offset-xs1 class="mt-3 mb-3">
+                <v-card color="primary" class="white--text text-xs-center" center>
+                  <v-card-text v-t="'initialize.qrcode_loaded'"></v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
