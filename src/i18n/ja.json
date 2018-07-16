@@ -53,8 +53,8 @@
     "restore_phrase": "パスフレーズ",
     "restore_phrase_description": "復元するウォレットのパスフレーズを入力してください。",
     "restore_qrcode": "QRコード",
-    "qrcode_description": "",
     "reset_qrcode": "別のQRコードを選択",
+    "qrcode_loaded": "QRコードを読み込みました",
     "qrcode_password_description": "以前のウォレットで指定したパスワードを入力してください。",
     "import_failed": "ウォレットの復元に失敗しました。"
   },
