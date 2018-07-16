@@ -11,7 +11,7 @@
         <v-list-tile avatar>
           <v-list-tile-content>
             <v-list-tile-title v-t="'settings.about_detail.version'"></v-list-tile-title>
-            <v-list-tile-sub-title>1.1.0-beta1</v-list-tile-sub-title>
+            <v-list-tile-sub-title>1.1.0-beta2</v-list-tile-sub-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
