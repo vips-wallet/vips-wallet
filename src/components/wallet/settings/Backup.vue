@@ -101,6 +101,7 @@
 
 <script>
 import utils from '@/utils/utils'
+
 export default {
   name: 'WalletSettingsBackup',
   data () {
@@ -123,6 +124,13 @@ export default {
     this.password = ''
     this.phrases = []
     this.show_passphrase = false
+
+    utils.verifyTouchID().then(password => {
+      this.password = password
+    }).catch(e => {
+      console.log(e)
+      this.password = ''
+    })
 
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
