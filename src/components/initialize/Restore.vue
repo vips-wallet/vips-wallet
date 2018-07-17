@@ -18,26 +18,20 @@
               <v-flex xs10 sm8 offset-sm2 offset-xs1>
                 <v-card flat>
                   <v-card-text v-t="'initialize.restore_phrase_description'"></v-card-text>
-                  <v-list>
-                    <v-list-tile
-                      v-for="(word, i) in words"
+                  <v-card flat>
+                    <v-chip
+                      v-for="(w, i) in words"
                       :key="i"
-                    >
-                      <v-list-tile-content>
-                        <v-select
-                          :items="phrases"
-                          v-model="words[i]"
-                          @input="add()"
-                          autocomplete
-                        ></v-select>
-                      </v-list-tile-content>
-                      <v-list-tile-action>
-                        <v-btn icon v-if="i < (words.length - 1)" @click.native="remove(i)">
-                          <v-icon>close</v-icon>
-                        </v-btn>
-                      </v-list-tile-action>
-                    </v-list-tile>
-                  </v-list>
+                      label
+                      close
+                      @input="remove(i)"
+                    >{{ w }}</v-chip>
+                  </v-card>
+                  <v-autocomplete
+                    :items="phrases"
+                    v-model="word"
+                    @input="add()"
+                  ></v-autocomplete>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -49,7 +43,7 @@
                     <v-text-field
                       v-model="password"
                       :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                      :append-icon-cb="() => (password_visible = !password_visible)"
+                      @click:append="() => (password_visible = !password_visible)"
                       :rules="[
                         () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true},
                         () => {return this.password.match(/^[a-zA-Z0-9!@#$%^&*]+$/) ? true : $t('initialize.password_use_invalid_word')}
@@ -96,7 +90,7 @@
                     <v-text-field
                       v-model="password"
                       :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                      :append-icon-cb="() => (password_visible = !password_visible)"
+                      @click:append="() => (password_visible = !password_visible)"
                       :rules="[
                         () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true},
                         () => {return this.password.match(/^[a-zA-Z0-9!@#$%^&*]+$/) ? true : $t('initialize.password_use_invalid_word')}
@@ -148,9 +142,8 @@ export default {
       tab: null,
       password: '',
       password_visible: false,
-      words: [
-        ''
-      ],
+      word: '',
+      words: [],
       phrases: require('bip39').wordlists.english,
       progress: false,
       show_camera: false,
@@ -169,9 +162,8 @@ export default {
   },
   methods: {
     add () {
-      if (this.words[this.words.length - 1] !== '') {
-        this.words.push('')
-      }
+      this.words.push(this.word)
+      this.word = ''
     },
     remove (index) {
       this.words.splice(index, 1)
@@ -225,7 +217,7 @@ export default {
     },
     changeTab () {
       this.qrcode_data = {}
-      if (this.tab === '1') {
+      if (this.tab === 1) {
         if (window.cordova) {
           let permissions = window.cordova.plugins.permissions
           permissions.checkPermission(

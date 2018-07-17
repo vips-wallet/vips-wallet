@@ -18,7 +18,7 @@
                   <v-text-field
                     v-model="password"
                     :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                    :append-icon-cb="() => (password_visible = !password_visible)"
+                    @click:append="() => (password_visible = !password_visible)"
                     :rules="[
                       () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true},
                       () => {return this.password.match(/^[a-zA-Z0-9!@#$%^&*]+$/) ? true : $t('initialize.password_use_invalid_word')}

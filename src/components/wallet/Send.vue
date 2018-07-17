@@ -76,11 +76,10 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs4>
-                <v-select
+                <v-autocomplete
                   :items="currencies"
                   v-model="amountType"
-                  autocomplete
-                ></v-select>
+                ></v-autocomplete>
               </v-flex>
             </v-layout>
             <v-layout row>
@@ -170,7 +169,7 @@
             <v-text-field
               v-model="password"
               :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-              :append-icon-cb="() => (password_visible = !password_visible)"
+              @click:append="() => (password_visible = !password_visible)"
               :rules="[
               () => {return (this.password.length < 8 && this.password.length > 0) ? $t('initialize.password_less_length') : true}
               ]"
