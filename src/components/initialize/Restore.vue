@@ -217,7 +217,7 @@ export default {
     },
     changeTab () {
       this.qrcode_data = {}
-      if (this.tab === '1') {
+      if (this.tab === 1) {
         if (window.cordova) {
           let permissions = window.cordova.plugins.permissions
           permissions.checkPermission(
