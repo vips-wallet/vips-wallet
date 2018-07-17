@@ -24,12 +24,11 @@
                       :key="i"
                     >
                       <v-list-tile-content>
-                        <v-select
+                        <v-autocomplete
                           :items="phrases"
                           v-model="words[i]"
                           @input="add()"
-                          autocomplete
-                        ></v-select>
+                        ></v-autocomplete>
                       </v-list-tile-content>
                       <v-list-tile-action>
                         <v-btn icon v-if="i < (words.length - 1)" @click.native="remove(i)">

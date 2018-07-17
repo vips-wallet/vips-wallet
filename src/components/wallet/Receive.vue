@@ -71,11 +71,10 @@
               ></v-text-field>
             </v-flex>
             <v-flex xs4>
-              <v-select
+              <v-autocomplete
                 :items="currencies"
                 v-model="amountType"
-                autocomplete
-              ></v-select>
+              ></v-autocomplete>
             </v-flex>
           </v-layout>
           <v-layout row>
