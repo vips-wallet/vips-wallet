@@ -20,7 +20,8 @@
     "actions": "Aktionen",
     "rescan": "Erneut scannen",
     "load_file": "Lade von der Datei",
-    "invalid_image": "Beim Laden ist ein Fehler aufgetreten"
+    "invalid_image": "Beim Laden ist ein Fehler aufgetreten",
+    "password_not_show": "Das Passwort kann nicht angezeigt werden, wenn die Authentifizierung per Fingerabdruck verwendet wird"
   },
   "message": {
     "title": "VIPSTAR☆COIN",

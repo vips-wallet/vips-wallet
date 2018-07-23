@@ -169,7 +169,7 @@
             <v-text-field
               v-model="password"
               :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-              @click:append="() => (password_visible = !password_visible)"
+              @click:append="togglePasswordVisible()"
               :rules="[
               () => {return (this.password.length < 8 && this.password.length > 0) ? $t('initialize.password_less_length') : true}
               ]"
@@ -279,7 +279,8 @@ export default {
       receiver_message: '',
       building: false,
       sending: false,
-      camera_config: CONST.QRCODE_CAMERA_CONFIG
+      camera_config: CONST.QRCODE_CAMERA_CONFIG,
+      is_fingerprint: false
     }
   },
   mounted () {
@@ -480,9 +481,15 @@ export default {
         utils.verifyTouchID().then((password) => {
           this.password = password
           this.confirmation = true
+          if (password) {
+            this.is_fingerprint = true
+          } else {
+            this.is_fingerprint = false
+          }
         }).catch(e => {
           console.log(e)
           this.confirmation = true
+          this.is_fingerprint = false
         })
       }).catch(error => {
         this.build_error = true
@@ -621,6 +628,14 @@ export default {
           }
         })
       })
+    },
+    togglePasswordVisible () {
+      if (this.is_fingerprint) {
+        this.password_visible = false
+        this.$globalEvent.$emit('open-error-dialog', this.$t('common.password_not_show'))
+      } else {
+        this.password_visible = !this.password_visible
+      }
     }
   },
   watch: {
