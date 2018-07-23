@@ -20,7 +20,8 @@
     "actions": "Actions",
     "rescan": "Rescan",
     "load_file": "Load from file",
-    "invalid_image": "An error occurred during loading"
+    "invalid_image": "An error occurred during loading",
+    "password_not_show": "Password can not be displayed when using fingerprint authentication"
   },
   "message": {
     "title": "VIPSTAR☆COIN",

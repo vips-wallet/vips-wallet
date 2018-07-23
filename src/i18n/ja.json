@@ -20,7 +20,8 @@
     "actions": "アクション",
     "rescan": "再スキャン",
     "load_file": "ファイルから読み込み",
-    "invalid_image": "読み込み時にエラーが発生しました"
+    "invalid_image": "読み込み時にエラーが発生しました",
+    "password_not_show": "指紋認証をご利用の場合、パスワードは表示できません"
   },
   "message": {
     "title": "VIPSTAR☆COIN",

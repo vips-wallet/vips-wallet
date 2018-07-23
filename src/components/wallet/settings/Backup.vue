@@ -9,7 +9,7 @@
               <v-text-field
                 v-model="password"
                 :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                @click:append="() => (password_visible = !password_visible)"
+                @click:append="togglePasswordVisible()"
                 :rules="[
                   () => {return (this.password !== '' && this.password.length < 8) ? $t('initialize.password_less_length') : true}
                 ]"
@@ -114,6 +114,7 @@ export default {
       showing: false,
       qrcode: '',
       snackbar: false,
+      is_fingerprint: false,
       snackbar_timeout: 4000
     }
   },
@@ -125,9 +126,15 @@ export default {
     this.show_passphrase = false
 
     utils.verifyTouchID().then(password => {
+      if (password) {
+        this.is_fingerprint = true
+      } else {
+        this.is_fingerprint = false
+      }
       this.password = password
     }).catch(e => {
       console.log(e)
+      this.is_fingerprint = false
       this.password = ''
     })
 
@@ -236,6 +243,14 @@ export default {
         link.click()
         document.body.removeChild(link)
         console.log(link)
+      }
+    },
+    togglePasswordVisible () {
+      if (this.is_fingerprint) {
+        this.password_visible = false
+        this.$globalEvent.$emit('open-error-dialog', this.$t('common.password_not_show'))
+      } else {
+        this.password_visible = !this.password_visible
       }
     }
   }
