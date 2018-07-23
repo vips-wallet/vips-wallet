@@ -31,6 +31,8 @@
                     :items="phrases"
                     v-model="word"
                     @input="add()"
+                    placeholder
+                    class="phrases"
                   ></v-autocomplete>
                 </v-card>
               </v-flex>
@@ -162,8 +164,12 @@ export default {
   },
   methods: {
     add () {
-      this.words.push(this.word)
-      this.word = ''
+      if (this.word && this.word !== '') {
+        this.words.push(this.word)
+        setTimeout(() => {
+          this.word = null
+        }, 100)
+      }
     },
     remove (index) {
       this.words.splice(index, 1)

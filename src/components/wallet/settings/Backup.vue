@@ -56,20 +56,15 @@
                   </v-card>
                   <v-divider></v-divider>
                   <v-subheader v-t="'settings.backup.passphrase'"></v-subheader>
-                  <v-list two-line subheader>
-                    <v-list-tile
-                      avatar
+                  <v-container fluid>
+                    <v-checkbox
                       v-for="(phrase, i) in phrases"
                       :key="i"
-                    >
-                      <v-list-tile-action>
-                        <v-checkbox v-model="check[i]"></v-checkbox>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title :class="check[i] ? 'checked' : ''">{{ phrase }}</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                  </v-list>
+                      :label="phrase"
+                      v-model="check[i]"
+                      :class="`minline ${check[i] ? 'checked' : ''}`"
+                    ></v-checkbox>
+                  </v-container>
                 </v-flex>
               </v-layout>
             </v-card-title>
@@ -91,11 +86,15 @@
 
 <style scoped>
 .checked {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
+  background-color: #ccc;
 }
 .qrcode-info {
   margin: 0 auto;
   text-align: center;
+}
+.minline {
+  height: 2em;
 }
 </style>
 
