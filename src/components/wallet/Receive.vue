@@ -1,7 +1,7 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card v-if="qrcodeDataUri">
+  <v-container fluid grid-list-md>
+    <v-layout row wrap v-if="qrcodeDataUri">
+      <v-flex xs12 md6 d-flex>
         <v-card>
           <div class="qrcode-info">
             <v-card-media
@@ -17,124 +17,128 @@
             </v-card-actions>
           </div>
         </v-card>
-        <v-container>
-          <v-subheader>{{ $t('receive.setting') }}</v-subheader>
-          <v-layout row>
-            <v-flex xs12>
-              <v-select
-                cache-items
-                single-line
-                bottom
-                :label="$t('receive.address')"
-                v-model="address"
-                :items="addresses"
-                ></v-select>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs12>
-              <v-switch
-                :label="$t('receive.use_fiat', {amount_type: useFiat ? amountType : 'VIPS'})"
-                v-model="useFiat"
-              ></v-switch>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs8>
-              <v-text-field
-                id="amount"
-                name="amount"
-                :label="$t('receive.amount')"
-                v-model="amount"
-                @focus="onAmount"
-                :rules="[
-                  () => checkValidNumber(amount, 8) || $t('receive.error.invalid_amount'),
-                  () => checkDust(amount) || $t('send.error.required_over_dust', {dust: dust.toString()})
-                ]"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs4>
-              <v-subheader>VIPS</v-subheader>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs8>
-              <v-text-field
-                id="fiat"
-                name="fiat"
-                :label="$t('receive.fiat')"
-                v-model="fiat"
-                @focus="onFiat"
-                :rules="[
-                  () => checkValidNumber(fiat) || $t('receive.error.invalid_fiat')
-                ]"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs4>
-              <v-autocomplete
-                :items="currencies"
-                v-model="amountType"
-              ></v-autocomplete>
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex xs12>
-              <v-text-field
-                id="message"
-                name="message"
-                :label="$t('receive.message')"
-                v-model="message"
-              ></v-text-field>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card>
-    </v-flex>
-    <v-fab-transition>
-      <v-btn
-        color="primary"
-        dark
-        small
-        fixed
+      </v-flex>
+      <v-flex xs12 md6 d-flex child-flex>
+        <v-card>
+          <v-container>
+            <v-subheader>{{ $t('receive.setting') }}</v-subheader>
+            <v-layout row>
+              <v-flex xs12>
+                <v-select
+                  cache-items
+                  single-line
+                  bottom
+                  :label="$t('receive.address')"
+                  v-model="address"
+                  :items="addresses"
+                  ></v-select>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs12>
+                <v-switch
+                  :label="$t('receive.use_fiat', {amount_type: useFiat ? amountType : 'VIPS'})"
+                  v-model="useFiat"
+                ></v-switch>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs8>
+                <v-text-field
+                  id="amount"
+                  name="amount"
+                  :label="$t('receive.amount')"
+                  v-model="amount"
+                  @focus="onAmount"
+                  :rules="[
+                    () => checkValidNumber(amount, 8) || $t('receive.error.invalid_amount'),
+                    () => checkDust(amount) || $t('send.error.required_over_dust', {dust: dust.toString()})
+                  ]"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs4>
+                <v-subheader>VIPS</v-subheader>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs8>
+                <v-text-field
+                  id="fiat"
+                  name="fiat"
+                  :label="$t('receive.fiat')"
+                  v-model="fiat"
+                  @focus="onFiat"
+                  :rules="[
+                    () => checkValidNumber(fiat) || $t('receive.error.invalid_fiat')
+                  ]"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs4>
+                <v-autocomplete
+                  :items="currencies"
+                  v-model="amountType"
+                ></v-autocomplete>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs12>
+                <v-text-field
+                  id="message"
+                  name="message"
+                  :label="$t('receive.message')"
+                  v-model="message"
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card>
+      </v-flex>
+      <v-fab-transition>
+        <v-btn
+          color="primary"
+          dark
+          small
+          fixed
+          bottom
+          right
+          fab
+          @click="sheet = true"
+        >
+          <v-icon>more_vert</v-icon>
+        </v-btn>
+      </v-fab-transition>
+      <v-bottom-sheet v-model="sheet">
+        <v-list>
+          <v-subheader v-t="'common.actions'"></v-subheader>
+          <v-list-tile @click="share()" v-if="canShare">
+            <v-list-tile-avatar>
+              <v-avatar tile>
+                <v-icon>share</v-icon>
+              </v-avatar>
+            </v-list-tile-avatar>
+            <v-list-tile-title v-t="'receive.share'"></v-list-tile-title>
+          </v-list-tile>
+          <v-list-tile @click="copyURIClipBoard()">
+            <v-list-tile-avatar>
+              <v-avatar tile>
+                <v-icon>file_copy</v-icon>
+              </v-avatar>
+            </v-list-tile-avatar>
+            <v-list-tile-title v-t="'receive.copy'"></v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-bottom-sheet>
+      <v-snackbar
         bottom
-        right
-        fab
-        @click="sheet = true"
+        v-model="snackbar"
+        :timeout="snackbar_timeout"
       >
-        <v-icon>more_vert</v-icon>
-      </v-btn>
-    </v-fab-transition>
-    <v-bottom-sheet v-model="sheet">
-      <v-list>
-        <v-subheader v-t="'common.actions'"></v-subheader>
-        <v-list-tile @click="share()" v-if="canShare">
-          <v-list-tile-avatar>
-            <v-avatar tile>
-              <v-icon>share</v-icon>
-            </v-avatar>
-          </v-list-tile-avatar>
-          <v-list-tile-title v-t="'receive.share'"></v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile @click="copyURIClipBoard()">
-          <v-list-tile-avatar>
-            <v-avatar tile>
-              <v-icon>file_copy</v-icon>
-            </v-avatar>
-          </v-list-tile-avatar>
-          <v-list-tile-title v-t="'receive.copy'"></v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-bottom-sheet>
-    <v-snackbar
-      bottom
-      v-model="snackbar"
-      :timeout="snackbar_timeout"
-    >
-      {{ $t('common.copy_clipboard') }}
-      <v-btn flat @click="snackbar = false" v-t="'common.close'">
-      </v-btn>
-    </v-snackbar>
-  </v-layout>
+        {{ $t('common.copy_clipboard') }}
+        <v-btn flat @click="snackbar = false" v-t="'common.close'">
+        </v-btn>
+      </v-snackbar>
+    </v-layout>
+  </v-container>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
