@@ -27,7 +27,7 @@
                   ></v-text-field>
                 </v-card>
                 <v-card-actions>
-                  <v-btn block :disabled="password.length < 8" @click="showMnemonic" v-t="'initialize.show_passphrase'"></v-btn>
+                  <v-btn block color="primary" :disabled="password.length < 8" @click="showMnemonic" v-t="'initialize.show_passphrase'"></v-btn>
                 </v-card-actions>
                 <v-card flat>
                   <v-alert v-model="error" type="error" dismissible v-t="'initialize.invalid_password'">
