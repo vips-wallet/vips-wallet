@@ -37,7 +37,7 @@
     "settings": "Settings"
   },
   "initialize": {
-    "create": "Create transaction",
+    "create": "Create new wallet",
     "restore": "Restore",
     "create_new_wallet": "Create new wallet",
     "password": "Password",
