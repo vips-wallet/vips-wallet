@@ -36,7 +36,7 @@
                 v-t="'settings.backup.show_passphrase'"
               ></v-btn>
             </v-card-actions>
-            <v-card-title v-if="show_passphrase">
+            <v-card-title v-if="show_passphrase" class="mb-4">
               <v-layout row>
                 <v-flex>
                   <v-subheader v-t="'settings.backup.qrcode'"></v-subheader>
