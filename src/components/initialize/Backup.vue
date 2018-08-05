@@ -33,7 +33,7 @@
                   <v-alert v-model="error" type="error" dismissible v-t="'initialize.invalid_password'">
                   </v-alert>
                 </v-card>
-                <v-card-title>
+                <v-card-title class="mb-4">
                   <v-container fluid v-if="show_passphrase">
                     <v-checkbox
                       v-for="(phrase, i) in phrases"
