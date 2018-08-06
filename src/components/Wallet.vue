@@ -52,7 +52,7 @@
       app
       :clipped-left="clipped"
     >
-      <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="toggleDrawer()" v-if="cameraButton"></v-toolbar-side-icon>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click.stop="deleteButtonPushed()" v-if="deleteButtonVisible">
