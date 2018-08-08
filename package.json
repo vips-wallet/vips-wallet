@@ -49,7 +49,7 @@
     "moment": "^2.22.1",
     "qrcode": "^1.2.0",
     "uuid": "^3.2.1",
-    "vipstarcoinjs-wallet-core": "vips-wallet/vipstarcoinjs-wallet-core#v0.0.2",
+    "vipstarcoinjs-wallet-core": "vips-wallet/vipstarcoinjs-wallet-core#v0.0.3",
     "vue": "^2.5.16",
     "vue-cordova": "^0.1.2",
     "vue-head": "^2.0.12",

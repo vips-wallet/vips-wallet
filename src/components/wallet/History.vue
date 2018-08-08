@@ -95,7 +95,7 @@
             <v-list-tile v-if="detail.message">
               <v-list-tile-content>
                 <v-list-tile-title v-t="'history.message'"></v-list-tile-title>
-                <v-list-tile-sub-title>{{ detail.message }}</v-list-tile-sub-title>
+                <v-list-tile-sub-title class="wrap">{{ detail.message }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
@@ -152,6 +152,10 @@
 }
 .scrollable {
   overflow-x: scroll;
+}
+.wrap {
+  word-break : break-all;
+  overflow-wrap: break-word;
 }
 </style>
 
