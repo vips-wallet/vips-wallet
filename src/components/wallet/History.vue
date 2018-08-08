@@ -181,7 +181,8 @@ export default {
       txs: [],
       total: 0,
       detail: {},
-      show_detail: false
+      show_detail: false,
+      updating: false
     }
   },
   mounted () {
@@ -200,7 +201,11 @@ export default {
   },
   methods: {
     updateHistory () {
+      if (this.updating) {
+        return
+      }
       this.loaded = false
+      this.updating = true
       this.txs = []
       if (this.$store.state.account) {
         this.$store.state.account.getTXs([], 0, 10).then(data => {
@@ -209,6 +214,8 @@ export default {
           this.loaded = true
         }).catch(e => {
           this.$globalEvent.$emit('open-error-dialog', this.$t('home.error.connection_failed'))
+        }).finally(() => {
+          this.updating = false
         })
       }
     },
