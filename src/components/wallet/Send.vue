@@ -164,24 +164,26 @@
             </v-list-tile>
           </v-list>
         </v-card-text>
-        <v-layout center justify>
-          <v-flex xs10 offset-xs1>
-            <v-text-field
-              v-model="password"
-              :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-              @click:append="togglePasswordVisible()"
-              :rules="[
-              () => {return (this.password.length < 8 && this.password.length > 0) ? $t('initialize.password_less_length') : true}
-              ]"
-              :type="password_visible ? 'text' : 'password'"
-              :label="$t('common.input_password')"
-            ></v-text-field>
-          </v-flex>
-        </v-layout>
-        <v-card-actions>
-          <v-btn block color="primary" :disabled="sending" @click.native="cancel()" v-t="'common.cancel'"></v-btn>
-          <v-btn block color="primary" :loading="sending" :disabled="sending" @click.native="send()" v-t="'send.send'"></v-btn>
-        </v-card-actions>
+        <v-card flat>
+          <v-layout center justify>
+            <v-flex xs10 offset-xs1>
+              <v-text-field
+                v-model="password"
+                :append-icon="password_visible ? 'visibility' : 'visibility_off'"
+                @click:append="togglePasswordVisible()"
+                :rules="[
+                () => {return (this.password.length < 8 && this.password.length > 0) ? $t('initialize.password_less_length') : true}
+                ]"
+                :type="password_visible ? 'text' : 'password'"
+                :label="$t('common.input_password')"
+              ></v-text-field>
+            </v-flex>
+          </v-layout>
+          <v-card-actions>
+            <v-btn block color="primary" :disabled="sending" @click.native="cancel()" v-t="'common.cancel'"></v-btn>
+            <v-btn block color="primary" :loading="sending" :disabled="sending" @click.native="send()" v-t="'send.send'"></v-btn>
+          </v-card-actions>
+        </v-card>
       </v-card>
     </v-dialog>
     <v-dialog v-model="error" max-width="500px">
