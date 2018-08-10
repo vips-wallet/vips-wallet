@@ -45,6 +45,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             reserved: [
               'Buffer',
               'BigInteger',
+              'BigNumber',
               'Point',
               'ECPubKey',
               'ECKey',
