@@ -38,9 +38,22 @@ var webpackConfig = merge(baseWebpackConfig, {
         cache: true,
         parallel: true,
         uglifyOptions: {
-          compress: false,
+          compress: true,
           ecma: 6,
-          mangle: false
+          mangle: {
+            // see: https://github.com/bitcoinjs/bitcoinjs-lib/issues/959#issuecomment-351040758
+            reserved: [
+              'Buffer',
+              'BigInteger',
+              'Point',
+              'ECPubKey',
+              'ECKey',
+              'sha512_asm',
+              'asm',
+              'ECPair',
+              'HDNode'
+            ]
+          }
         },
         sourceMap: true
       })
