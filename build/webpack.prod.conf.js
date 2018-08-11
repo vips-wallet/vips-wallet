@@ -52,7 +52,8 @@ var webpackConfig = merge(baseWebpackConfig, {
               'sha512_asm',
               'asm',
               'ECPair',
-              'HDNode'
+              'HDNode',
+              'InsightAPI'
             ]
           }
         },
