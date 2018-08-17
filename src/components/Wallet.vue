@@ -72,6 +72,7 @@
     <v-footer :fixed="fixed" app>
       <span>&copy; 2018 VIPSTARCOIN</span>
     </v-footer>
+    <license-agreement/>
   </v-app>
 </template>
 
@@ -83,6 +84,7 @@ a {
 </style>
 
 <script>
+import LicenseAgreement from '@/components/LicenseAgreement'
 import utils from '@/utils/utils'
 
 let minimize = localStorage.getItem('minimize')
@@ -90,6 +92,9 @@ minimize = (minimize) ? JSON.parse(minimize) : false
 
 export default {
   name: 'Wallet',
+  components: {
+    LicenseAgreement
+  },
   data () {
     return {
       clipped: false,
