@@ -72,7 +72,8 @@
     <v-footer :fixed="fixed" app>
       <span>&copy; 2018 VIPSTARCOIN</span>
     </v-footer>
-    <license-agreement/>
+    <license-agreement @agree="onAgree()"/>
+    <limit-notify v-model="notify"/>
   </v-app>
 </template>
 
@@ -85,6 +86,7 @@ a {
 
 <script>
 import LicenseAgreement from '@/components/LicenseAgreement'
+import LimitNotify from '@/components/LimitNotify'
 import utils from '@/utils/utils'
 
 let minimize = localStorage.getItem('minimize')
@@ -93,7 +95,8 @@ minimize = (minimize) ? JSON.parse(minimize) : false
 export default {
   name: 'Wallet',
   components: {
-    LicenseAgreement
+    LicenseAgreement,
+    LimitNotify
   },
   data () {
     return {
@@ -114,7 +117,8 @@ export default {
         { icon: 'settings', title: 'menu.settings', route: '/wallet/settings' }
       ],
       title: '',
-      cameraButton: true
+      cameraButton: true,
+      notify: false
     }
   },
   mounted () {
@@ -178,6 +182,10 @@ export default {
         this.$globalEvent.$emit('error-update-wallet-info', error)
       })
     })
+
+    if (this.$store.state.agreement) {
+      this.notify = true
+    }
   },
   methods: {
     toggleDrawer (event) {
@@ -224,6 +232,9 @@ export default {
     },
     deleteButtonPushed () {
       this.$globalEvent.$emit('delete-button-pushed')
+    },
+    onAgree () {
+      this.notify = true
     }
   },
   watch: {

@@ -26,7 +26,12 @@
   },
   "message": {
     "title": "VIPSTAR☆COIN",
-    "phrase": "Spaß kaufen"
+    "phrase": "Spaß kaufen",
+    "warning": {
+      "title": "Warning",
+      "ios": "Bei Verwendung mit iOS löscht iOS Wallet-Daten möglicherweise gemäß den iOS-Spezifikationen. Bitte stellen Sie sicher, dass Sie eine Sicherungskopie erstellen, damit Sie sie jederzeit wiederherstellen können.",
+      "camera_not_supported": "Sie können die QR-Code-Leserfunktion nicht verwenden, da die Kamera nicht an dem von Ihnen verwendeten Terminal verwendet werden kann. Bitte beachten Sie, dass Kameras außerhalb von Safari bei iOS nicht verwendet werden können. Auch wenn Sie Safari verwenden, können Sie die Kamera nicht verwenden, wenn Sie \"Zum Home-Bildschirm\" hinzufügen."
+    }
   },
   "menu": {
     "account": "Wallet-Name: {name}",

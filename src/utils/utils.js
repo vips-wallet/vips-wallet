@@ -226,6 +226,20 @@ function base64ToBlob (base64) {
   return blob
 }
 
+function isiOS () {
+  let ua = window.navigator.userAgent.toLowerCase()
+  return (ua.indexOf('iphone') !== -1 || ua.indexOf('ipod') !== -1 || ua.indexOf('ipad') !== -1)
+}
+
+function isMobileSafari () {
+  let ua = window.navigator.userAgent.toLowerCase()
+  return (isiOS() && ua.indexOf('safari') !== -1)
+}
+
+function isCameraSupport () {
+  return (navigator.mediaDevices.getUserMedia !== null && navigator.mediaDevices.getUserMedia !== undefined)
+}
+
 export default {
   walletExists: walletExists,
   walletLoaded: walletLoaded,
@@ -244,5 +258,8 @@ export default {
   openImageFile: openImageFile,
   openImageFileForMobile: openImageFileForMobile,
   openFileForBrowser: openFileForBrowser,
-  base64ToBlob: base64ToBlob
+  base64ToBlob: base64ToBlob,
+  isiOS: isiOS,
+  isMobileSafari: isMobileSafari,
+  isCameraSupport: isCameraSupport
 }

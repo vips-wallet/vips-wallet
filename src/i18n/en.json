@@ -26,7 +26,12 @@
   },
   "message": {
     "title": "VIPSTAR☆COIN",
-    "phrase": "Let's \"Buy 'Fun'\""
+    "phrase": "Let's \"Buy 'Fun'\"",
+    "warning": {
+      "title": "Warning",
+      "ios": "In case of using with iOS, iOS may delete wallet data according to iOS specifications. Please make sure to back up so that you can restore it at any time.",
+      "camera_not_supported": "You can not use the QR code reader function because the camera can not be used on the terminal you use. Please note that cameras can not be used outside of Safari when using iOS. Also, even if you use Safari, you can not use the camera if you do \"Add to Home Screen\"."
+    }
   },
   "menu": {
     "account": "Wallet Name: {name}",
