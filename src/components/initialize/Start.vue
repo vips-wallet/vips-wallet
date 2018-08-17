@@ -31,10 +31,10 @@
     <v-footer fixed height="auto">
       <v-flex xs10 sm6 offset-xs1 offset-sm3>
         <v-layout row wrap justify-center>
-          <v-btn block color="orange" @click="$router.push('create')">{{ $t("initialize.create") }}</v-btn>
+          <v-btn block color="orange" :disabled="disabled" @click="$router.push('create')">{{ $t("initialize.create") }}</v-btn>
         </v-layout>
         <v-layout row wrap justify-center>
-            <v-btn block color="orange" @click="$router.push('restore')">{{ $t("initialize.restore") }}</v-btn>
+          <v-btn block color="orange" :disabled="disabled" @click="$router.push('restore')">{{ $t("initialize.restore") }}</v-btn>
         </v-layout>
       </v-flex>
     </v-footer>
@@ -77,6 +77,9 @@ export default {
         localStorage.setItem('locale', value)
         this.$i18n.locale = value
       }
+    },
+    disabled () {
+      return !this.$store.state.agreement
     }
   },
   methods: {

@@ -1,6 +1,7 @@
 {
   "common": {
     "language": "Sprache",
+    "agree": "Zustimmen",
     "back": "Zurück",
     "next": "Weiter",
     "yes": "Ja",
@@ -35,6 +36,14 @@
     "send": "Senden",
     "history": "Verlauf",
     "settings": "Einstellung"
+  },
+  "license": {
+    "title": "Bestätigen Sie die Nutzungsbedingungen",
+    "message1": "Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.",
+    "message2": "Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.",
+    "message3": "Bitte lesen Sie die GNU General Public License sorgfältig durch den folgenden Link und klicken Sie auf 'Agree', um fortzufahren.",
+    "link": "Sehen Sie sich den vollständigen Text der GNU General Public License an",
+    "sourcecode": "Quellcode"
   },
   "initialize": {
     "create": "Neu",
@@ -219,7 +228,9 @@
       "name": "App-Name",
       "version": "Version",
       "bugreport": "Fehler melden",
-      "open_bugreport_form": "Eingabeformular öffnen"
+      "open_bugreport_form": "Eingabeformular öffnen",
+      "license": "Softwarelizenz",
+      "sourcecode": "Quellcode"
     }
   }
 }
