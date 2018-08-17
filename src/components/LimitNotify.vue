@@ -38,7 +38,7 @@ export default {
     if (!window.cordova && utils.isiOS()) {
       this.isiOS = true
     }
-    if (!utils.isCameraSupport) {
+    if (!utils.isCameraSupport()) {
       this.isCameraNotSupported = true
     }
   },
