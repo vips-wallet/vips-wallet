@@ -228,7 +228,9 @@
       "name": "App-Name",
       "version": "Version",
       "bugreport": "Fehler melden",
-      "open_bugreport_form": "Eingabeformular öffnen"
+      "open_bugreport_form": "Eingabeformular öffnen",
+      "license": "Softwarelizenz",
+      "sourcecode": "Quellcode"
     }
   }
 }

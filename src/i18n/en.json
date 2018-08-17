@@ -228,7 +228,9 @@
       "name": "Name of application",
       "version": "Vestion",
       "bugreport": "Report bug",
-      "open_bugreport_form": "Open bug reporting form"
+      "open_bugreport_form": "Open bug reporting form",
+      "license": "ソフトウェアライセンス",
+      "sourcecode": "Source code"
     }
   }
 }

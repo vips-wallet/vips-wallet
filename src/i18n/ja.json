@@ -231,7 +231,9 @@
       "name": "アプリケーション名",
       "version": "バージョン",
       "bugreport": "バグを報告する",
-      "open_bugreport_form": "バグ報告フォームを開く"
+      "open_bugreport_form": "バグ報告フォームを開く",
+      "license": "ソフトウェアライセンス",
+      "sourcecode": "ソースコード"
     }
   }
 }
