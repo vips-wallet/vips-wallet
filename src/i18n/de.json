@@ -219,6 +219,7 @@
       "save_qrcode": "QR-Code speichern",
       "passphrase": "Passphrase",
       "saved_qrcode": "QR-Code gespeichert",
+      "for_ios_issue": "Bitte speichern Sie mit dem Screenshot. Es wird empfohlen, den QR-Code-Teil zuzuschneiden.",
       "error": {
         "save_qrcode": "Fehler beim Speichern des QR-Codes"
       }

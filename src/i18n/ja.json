@@ -222,6 +222,7 @@
       "save_qrcode": "QRコードを保存",
       "passphrase": "パスフレーズ",
       "saved_qrcode": "QRコードを保存しました",
+      "for_ios_issue": "端末のスクリーンショット機能を使って保存してください。QRコード部分をトリミングすることを推奨します。",
       "error": {
         "save_qrcode": "QRコードの保存に失敗しました"
       }
