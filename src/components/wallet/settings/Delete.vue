@@ -81,9 +81,15 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: false,
-      camera: false
+      camera: false,
+      back: true
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('settings.delete_wallet'))
+
+    this.$globalEvent.$on('back-button-pushed', this.backButtonPushed)
+  },
+  destroyed () {
+    this.$globalEvent.$off('back-button-pushed', this.backButtonPushed)
   },
   methods: {
     deleteWallet () {
@@ -132,6 +138,9 @@ export default {
       } else {
         this.$router.push('/initialize/start')
       }
+    },
+    backButtonPushed () {
+      this.$router.push('/wallet/settings')
     }
   }
 }

@@ -141,9 +141,15 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: false,
-      camera: false
+      camera: false,
+      back: true
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('settings.make_backup'))
+
+    this.$globalEvent.$on('back-button-pushed', this.backButtonPushed)
+  },
+  destroyed () {
+    this.$globalEvent.$off('back-button-pushed', this.backButtonPushed)
   },
   computed: {
     complete () {
@@ -252,6 +258,9 @@ export default {
       } else {
         this.password_visible = !this.password_visible
       }
+    },
+    backButtonPushed () {
+      this.$router.push('/wallet/settings')
     }
   }
 }

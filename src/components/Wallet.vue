@@ -53,6 +53,9 @@
       :clipped-left="clipped"
     >
       <v-toolbar-side-icon @click.stop="toggleDrawer()" v-if="cameraButton"></v-toolbar-side-icon>
+      <v-btn icon @click.stop="backButtonPushed()" v-if="backButtonVisible && cameraButton">
+        <v-icon>arrow_back</v-icon>
+      </v-btn>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click.stop="deleteButtonPushed()" v-if="deleteButtonVisible && cameraButton">
@@ -160,6 +163,8 @@ export default {
             this.cameraButton = true
             this.cameraButtonVisible = opt[key]
             break
+          case 'back':
+            this.backButtonVisible = opt[key]
         }
       })
     })
@@ -241,6 +246,9 @@ export default {
     },
     deleteButtonPushed () {
       this.$globalEvent.$emit('delete-button-pushed')
+    },
+    backButtonPushed () {
+      this.$globalEvent.$emit('back-button-pushed')
     },
     onAgree () {
       this.notify = true
