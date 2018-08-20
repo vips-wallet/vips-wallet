@@ -15,6 +15,7 @@
     "password_mismatch": "パスワードが間違っています",
     "camera_not_permitted": "カメラを使用する権限が必要です",
     "camera_initialize_error": "カメラの初期化に失敗しました",
+    "camera_not_supported": "お使いの端末ではカメラを使用できません",
     "copy_clipboard": "コピーしました",
     "currency_is_not_supported": "指定の通貨({amountType})は非対応です",
     "invalid_uri_format": "有効なヌクモリンクではありません",

@@ -5,6 +5,7 @@
       @decode="onCameraDecode"
       :paused="paused"
       :video-constraints="camera_config"
+      v-if="cameraSupported"
     >
       <v-btn
         block
@@ -25,6 +26,27 @@
         v-t="'common.load_file'"
       ></v-btn>
     </qrcode-reader>
+    <v-card flat v-else>
+      <v-card-text v-t="'common.camera_not_supported'"></v-card-text>
+      <v-btn
+        block
+        absolute
+        bottom
+        v-if="paused"
+        color="primary"
+        @click.stop="rescan()"
+        v-t="'common.rescan'"
+      ></v-btn>
+      <v-btn
+        block
+        absolute
+        bottom
+        v-else
+        color="primary"
+        @click.stop="openFile"
+        v-t="'common.load_file'"
+      ></v-btn>
+    </v-card>
   </v-layout>
 </template>
 
@@ -40,6 +62,7 @@ export default {
   data () {
     return {
       paused: false,
+      cameraSupported: utils.isCameraSupport(),
       camera_config: CONST.QRCODE_CAMERA_CONFIG
     }
   },
