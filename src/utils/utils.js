@@ -148,13 +148,11 @@ function openQRCodeImage () {
 }
 
 function openImageFile () {
-  let promise = Promise.reject(new Error('unsupported device'))
+  let fn = openFileForBrowser
   if (window.cordova) {
-    promise = openImageFileForMobile()
-  } else {
-    promise = openFileForBrowser()
+    fn = openImageFileForMobile
   }
-  return promise
+  return fn()
 }
 
 function openImageFileForMobile () {
@@ -189,8 +187,10 @@ function openImageFileForMobile () {
 function openFileForBrowser () {
   let file = document.createElement('input')
   file.type = 'file'
+  document.body.appendChild(file)
   return new Promise((resolve, reject) => {
     file.onchange = (ev) => {
+      document.body.removeChild(file)
       let files = ev.target.files || ev.dataTransfer.files
       if (files.length) {
         resolve(files[0])
