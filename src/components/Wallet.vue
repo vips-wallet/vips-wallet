@@ -111,6 +111,7 @@ export default {
       deleteButtonVisible: false,
       refreshButtonVisible: false,
       cameraButtonVisible: false,
+      backButtonVisible: false,
       account_label: '',
       items: [
         { icon: 'home', title: 'menu.home', route: '/wallet/home' },
