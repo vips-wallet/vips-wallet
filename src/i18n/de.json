@@ -15,6 +15,7 @@
     "password_mismatch": "Passwort inkorrekt",
     "camera_not_permitted": "Zugriff auf Kamera muss genehmigt werden.",
     "camera_initialize_error": "Kamerainitialisierung fehlgeschlagen",
+    "camera_not_supported": "Die Kamera kann nicht auf Ihrem Gerät verwendet werden",
     "copy_clipboard": "Kopiert",
     "currency_is_not_supported": "Diese Währung ({amountType}) wird nicht unterstützt.",
     "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI",
