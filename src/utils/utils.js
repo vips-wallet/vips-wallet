@@ -237,7 +237,7 @@ function isMobileSafari () {
 }
 
 function isCameraSupport () {
-  return (navigator.mediaDevices.getUserMedia !== null && navigator.mediaDevices.getUserMedia !== undefined)
+  return (navigator.mediaDevices !== undefined && navigator.mediaDevices.getUserMedia !== undefined)
 }
 
 export default {
