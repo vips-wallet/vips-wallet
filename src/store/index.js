@@ -24,7 +24,8 @@ const store = new Vuex.Store({
     },
     updateTime: moment(),
     uri: null,
-    agreement: (localStorage.getItem('agreement') === '1')
+    agreement: (localStorage.getItem('agreement') === '1'),
+    useCamera: false
   },
   mutations: {
     setWallet (state, walletGroup) {
@@ -79,6 +80,12 @@ const store = new Vuex.Store({
     agreement (state) {
       state.agreement = true
       localStorage.setItem('agreement', '1')
+    },
+    setUseCamera (state, flg) {
+      state.useCamera = flg
+    },
+    toggleUseCamera (state) {
+      state.useCamera = !state.useCamera
     }
   },
   actions: {
