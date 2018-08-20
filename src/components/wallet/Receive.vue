@@ -11,7 +11,7 @@
                 contain
             >
             </v-card-media>
-            <v-card-text>{{ address }}</v-card-text>
+            <v-card-text class="shorten">{{ address }}</v-card-text>
             <v-card-actions>
               <v-btn block color="primary" dark v-t="'receive.copy'" @click="copyURIClipBoard()"></v-btn>
             </v-card-actions>
@@ -31,6 +31,7 @@
                   :label="$t('receive.address')"
                   v-model="address"
                   :items="addresses"
+                  class="shorten"
                   ></v-select>
               </v-flex>
             </v-layout>
@@ -160,6 +161,13 @@ a {
 div.qrcode-info {
   margin: 0 auto;
   text-align: center;
+}
+.shorten {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
 </style>
 
