@@ -123,10 +123,10 @@ export default {
   computed: {
     cameraButton: {
       get () {
-        return this.$store.state.useCamera
+        return !this.$store.state.useCamera
       },
       set (value) {
-        this.$store.commit('setUseCamera', !!value)
+        this.$store.commit('setUseCamera', !value)
       }
     }
   },
