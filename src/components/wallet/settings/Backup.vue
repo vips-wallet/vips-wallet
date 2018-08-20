@@ -49,7 +49,8 @@
                         contain
                       >
                       </v-card-media>
-                      <v-card-actions>
+                      <v-card-text v-if="is_ios_browser" v-t="'settings.backup.for_ios_issue'"></v-card-text>
+                      <v-card-actions v-else>
                         <v-btn block color="primary" dark v-t="'settings.backup.save_qrcode'" @click="saveQRCode()"></v-btn>
                       </v-card-actions>
                     </div>
@@ -115,7 +116,8 @@ export default {
       qrcode: '',
       snackbar: false,
       is_fingerprint: false,
-      snackbar_timeout: 4000
+      snackbar_timeout: 4000,
+      is_ios_browser: utils.isiOS() && !window.cordova
     }
   },
   mounted () {

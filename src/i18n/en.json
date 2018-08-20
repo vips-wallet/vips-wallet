@@ -219,6 +219,7 @@
       "save_qrcode": "Save QR Code",
       "passphrase": "Passphrase",
       "saved_qrcode": "QR Code saved",
+      "for_ios_issue": "Please save using the screen shot. It is recommended to trim the QR code part.",
       "error": {
         "save_qrcode": "Failed to save QR Code"
       }
