@@ -66,9 +66,20 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: false,
-      camera: false
+      camera: false,
+      back: true
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('settings.change_currency'))
+
+    this.$globalEvent.$on('back-button-pushed', this.backButtonPushed)
+  },
+  destroyed () {
+    this.$globalEvent.$off('back-button-pushed', this.backButtonPushed)
+  },
+  methods: {
+    backButtonPushed () {
+      this.$router.push('/wallet/settings')
+    }
   }
 }
 </script>

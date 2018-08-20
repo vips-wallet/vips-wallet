@@ -212,7 +212,8 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: true,
       refresh: true,
-      camera: false
+      camera: false,
+      back: false
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('receive.description'))
   },

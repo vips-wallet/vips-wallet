@@ -295,7 +295,8 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: true,
       refresh: true,
-      camera: true
+      camera: true,
+      back: false
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('send.description'))
     this.$globalEvent.$emit('do-update-wallet-info')

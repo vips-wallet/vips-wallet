@@ -191,7 +191,8 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: true,
-      camera: false
+      camera: false,
+      back: false
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('history.description'))
     this.updateHistory()
