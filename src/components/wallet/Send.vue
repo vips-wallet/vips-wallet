@@ -571,6 +571,7 @@ export default {
       this.show_camera = false
       this.camera_error = true
       this.error_detail = error.message
+      this.$store.commit('setUseCamera', false)
       console.error(error)
     },
     onCameraDecodeError (error) {

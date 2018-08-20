@@ -55,10 +55,10 @@
       <v-toolbar-side-icon @click.stop="toggleDrawer()" v-if="cameraButton"></v-toolbar-side-icon>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="deleteButtonPushed()" v-if="deleteButtonVisible">
+      <v-btn icon @click.stop="deleteButtonPushed()" v-if="deleteButtonVisible && cameraButton">
         <v-icon>delete</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="refreshWalletInfo()" v-if="refreshButtonVisible">
+      <v-btn icon @click.stop="refreshWalletInfo()" v-if="refreshButtonVisible && cameraButton">
         <v-icon>refresh</v-icon>
       </v-btn>
       <v-btn icon @click.stop="cameraButtonPushed()" v-if="cameraButtonVisible">
@@ -117,8 +117,17 @@ export default {
         { icon: 'settings', title: 'menu.settings', route: '/wallet/settings' }
       ],
       title: '',
-      cameraButton: true,
       notify: false
+    }
+  },
+  computed: {
+    cameraButton: {
+      get () {
+        return !this.$store.state.useCamera
+      },
+      set (value) {
+        this.$store.commit('setUseCamera', !value)
+      }
     }
   },
   mounted () {
