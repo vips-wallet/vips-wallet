@@ -246,11 +246,7 @@ export default {
       } else {
         let link = document.createElement('a')
         link.download = 'vips_wallet_backup.png'
-        try {
-          link.srcObject = blob
-        } catch (e) {
-          link.href = window.URL.createObjectURL(blob)
-        }
+        link.href = window.URL.createObjectURL(blob)
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
