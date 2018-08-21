@@ -154,7 +154,8 @@
       "cordova-plugin-android-permissions": {},
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-camera": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-file": {},
+      "es6-promise-plugin": {}
     },
     "platforms": [
       "android"

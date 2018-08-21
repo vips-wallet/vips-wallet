@@ -37,11 +37,10 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
-    }
-  },
-  "dependent_plugins": {
+    },
     "es6-promise-plugin": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     }
-  }
+  },
+  "dependent_plugins": {}
 }
