@@ -1,6 +1,7 @@
 {
   "common": {
     "language": "言語",
+    "agree": "同意する",
     "back": "戻る",
     "next": "進む",
     "yes": "はい",
@@ -14,17 +15,24 @@
     "password_mismatch": "パスワードが間違っています",
     "camera_not_permitted": "カメラを使用する権限が必要です",
     "camera_initialize_error": "カメラの初期化に失敗しました",
+    "camera_not_supported": "お使いの端末ではカメラを使用できません",
     "copy_clipboard": "コピーしました",
     "currency_is_not_supported": "指定の通貨({amountType})は非対応です",
     "invalid_uri_format": "有効なヌクモリンクではありません",
     "actions": "アクション",
     "rescan": "再スキャン",
     "load_file": "ファイルから読み込み",
-    "invalid_image": "読み込み時にエラーが発生しました"
+    "invalid_image": "読み込み時にエラーが発生しました",
+    "password_not_show": "指紋認証をご利用の場合、パスワードは表示できません"
   },
   "message": {
     "title": "VIPSTAR☆COIN",
-    "phrase": "楽しさを、買おう。"
+    "phrase": "楽しさを、買おう。",
+    "warning": {
+      "title": "注意",
+      "ios": "iOSでのご利用の場合、iOSの仕様によりiOSがウォレットデータを削除することがあります。いつでも復元できるよう確実にバックアップを行ってください。",
+      "camera_not_supported": "ご利用の端末ではカメラが利用できないため、QRコードリーダー機能をお使いいただけません。<br>iOSをご利用の場合、Safari以外ではカメラが利用できないことにご注意ください。<br>また、Safariを利用していても「ホームに追加」を行うとカメラを利用することができません。"
+    }
   },
   "menu": {
     "account": "ウォレット名: {name}",
@@ -34,6 +42,15 @@
     "send": "送金",
     "history": "履歴",
     "settings": "設定"
+  },
+  "license": {
+    "title": "利用規約の確認",
+    "message1": " このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 一般公衆利用許諾書(バージョン3か、それ以降のバージョンのうちどれか)が定める条件の下で再頒布または改変することができます。",
+    "message2": "このプログラムは有用であることを願って頒布されますが、全くの無保証です。商業可能性の保証や特定目的への適合性は、言外に示されたものも含め、全く存在しません。詳しくはGNU 一般公衆利用許諾書をご覧ください。",
+    "message3": "下記リンクからGNU 一般公衆利用許諾書をよく読んだ上で「同意する」ボタンを押してお進みください。",
+
+    "link": "GNU 一般公衆利用許諾書の全文を表示する",
+    "sourcecode": "ソースコード"
   },
   "initialize": {
     "create": "新規作成",
@@ -53,8 +70,8 @@
     "restore_phrase": "パスフレーズ",
     "restore_phrase_description": "復元するウォレットのパスフレーズを入力してください。",
     "restore_qrcode": "QRコード",
-    "qrcode_description": "",
     "reset_qrcode": "別のQRコードを選択",
+    "qrcode_loaded": "QRコードを読み込みました",
     "qrcode_password_description": "以前のウォレットで指定したパスワードを入力してください。",
     "import_failed": "ウォレットの復元に失敗しました。"
   },
@@ -204,7 +221,8 @@
       "qrcode": "QRコード",
       "save_qrcode": "QRコードを保存",
       "passphrase": "パスフレーズ",
-      "save_qrcode": "QRコードを保存しました",
+      "saved_qrcode": "QRコードを保存しました",
+      "for_ios_issue": "端末のスクリーンショット機能を使って保存してください。QRコード部分をトリミングすることを推奨します。",
       "error": {
         "save_qrcode": "QRコードの保存に失敗しました"
       }
@@ -220,7 +238,9 @@
       "name": "アプリケーション名",
       "version": "バージョン",
       "bugreport": "バグを報告する",
-      "open_bugreport_form": "バグ報告フォームを開く"
+      "open_bugreport_form": "バグ報告フォームを開く",
+      "license": "ソフトウェアライセンス",
+      "sourcecode": "ソースコード"
     }
   }
 }

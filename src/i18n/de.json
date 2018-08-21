@@ -1,6 +1,7 @@
 {
   "common": {
     "language": "Sprache",
+    "agree": "Zustimmen",
     "back": "Zurück",
     "next": "Weiter",
     "yes": "Ja",
@@ -14,17 +15,24 @@
     "password_mismatch": "Passwort inkorrekt",
     "camera_not_permitted": "Zugriff auf Kamera muss genehmigt werden.",
     "camera_initialize_error": "Kamerainitialisierung fehlgeschlagen",
+    "camera_not_supported": "Die Kamera kann nicht auf Ihrem Gerät verwendet werden",
     "copy_clipboard": "Kopiert",
     "currency_is_not_supported": "Diese Währung ({amountType}) wird nicht unterstützt.",
     "invalid_uri_format": "Ungültiger VIPSTARCOIN BIP21-URI",
     "actions": "Aktionen",
     "rescan": "Erneut scannen",
     "load_file": "Lade von der Datei",
-    "invalid_image": "Beim Laden ist ein Fehler aufgetreten"
+    "invalid_image": "Beim Laden ist ein Fehler aufgetreten",
+    "password_not_show": "Das Passwort kann nicht angezeigt werden, wenn die Authentifizierung per Fingerabdruck verwendet wird"
   },
   "message": {
     "title": "VIPSTAR☆COIN",
-    "phrase": "Spaß kaufen"
+    "phrase": "Spaß kaufen",
+    "warning": {
+      "title": "Warning",
+      "ios": "Bei Verwendung mit iOS löscht iOS Wallet-Daten möglicherweise gemäß den iOS-Spezifikationen. Bitte stellen Sie sicher, dass Sie eine Sicherungskopie erstellen, damit Sie sie jederzeit wiederherstellen können.",
+      "camera_not_supported": "Sie können die QR-Code-Leserfunktion nicht verwenden, da die Kamera nicht an dem von Ihnen verwendeten Terminal verwendet werden kann. Bitte beachten Sie, dass Kameras außerhalb von Safari bei iOS nicht verwendet werden können. Auch wenn Sie Safari verwenden, können Sie die Kamera nicht verwenden, wenn Sie \"Zum Home-Bildschirm\" hinzufügen."
+    }
   },
   "menu": {
     "account": "Wallet-Name: {name}",
@@ -34,6 +42,14 @@
     "send": "Senden",
     "history": "Verlauf",
     "settings": "Einstellung"
+  },
+  "license": {
+    "title": "Bestätigen Sie die Nutzungsbedingungen",
+    "message1": "Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.",
+    "message2": "Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.",
+    "message3": "Bitte lesen Sie die GNU General Public License sorgfältig durch den folgenden Link und klicken Sie auf 'Agree', um fortzufahren.",
+    "link": "Sehen Sie sich den vollständigen Text der GNU General Public License an",
+    "sourcecode": "Quellcode"
   },
   "initialize": {
     "create": "Neu",
@@ -53,6 +69,7 @@
     "restore_phrase": "Passphrase",
     "restore_phrase_description": "Bitte die Passphrase für das zu wiederherstellende Wallet eingeben.",
     "restore_qrcode": "QR-Code",
+    "qrcode_loaded": "QR-Code geladen",
     "qrcode_password_description": "Bitte geben Sie das Passwort ein, das Sie in der vorherigen Brieftasche angegeben haben.",
     "import_failed": "Wiederherstellung fehlgeschlagen"
   },
@@ -201,7 +218,8 @@
       "qrcode": "QR-Code",
       "save_qrcode": "QR-Code speichern",
       "passphrase": "Passphrase",
-      "save_qrcode": "QR-Code gespeichert",
+      "saved_qrcode": "QR-Code gespeichert",
+      "for_ios_issue": "Bitte speichern Sie mit dem Screenshot. Es wird empfohlen, den QR-Code-Teil zuzuschneiden.",
       "error": {
         "save_qrcode": "Fehler beim Speichern des QR-Codes"
       }
@@ -217,7 +235,9 @@
       "name": "App-Name",
       "version": "Version",
       "bugreport": "Fehler melden",
-      "open_bugreport_form": "Eingabeformular öffnen"
+      "open_bugreport_form": "Eingabeformular öffnen",
+      "license": "Softwarelizenz",
+      "sourcecode": "Quellcode"
     }
   }
 }

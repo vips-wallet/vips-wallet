@@ -18,26 +18,22 @@
               <v-flex xs10 sm8 offset-sm2 offset-xs1>
                 <v-card flat>
                   <v-card-text v-t="'initialize.restore_phrase_description'"></v-card-text>
-                  <v-list>
-                    <v-list-tile
-                      v-for="(word, i) in words"
+                  <v-card flat>
+                    <v-chip
+                      v-for="(w, i) in words"
                       :key="i"
-                    >
-                      <v-list-tile-content>
-                        <v-select
-                          :items="phrases"
-                          v-model="words[i]"
-                          @input="add()"
-                          autocomplete
-                        ></v-select>
-                      </v-list-tile-content>
-                      <v-list-tile-action>
-                        <v-btn icon v-if="i < (words.length - 1)" @click.native="remove(i)">
-                          <v-icon>close</v-icon>
-                        </v-btn>
-                      </v-list-tile-action>
-                    </v-list-tile>
-                  </v-list>
+                      label
+                      close
+                      @input="remove(i)"
+                    >{{ w }}</v-chip>
+                  </v-card>
+                  <v-autocomplete
+                    :items="phrases"
+                    v-model="word"
+                    @input="add()"
+                    placeholder
+                    class="phrases"
+                  ></v-autocomplete>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -49,7 +45,7 @@
                     <v-text-field
                       v-model="password"
                       :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                      :append-icon-cb="() => (password_visible = !password_visible)"
+                      @click:append="() => (password_visible = !password_visible)"
                       :rules="[
                         () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true},
                         () => {return this.password.match(/^[a-zA-Z0-9!@#$%^&*]+$/) ? true : $t('initialize.password_use_invalid_word')}
@@ -67,7 +63,7 @@
         </v-tab-item>
         <v-tab-item key="qrcode">
           <v-card flat>
-            <v-layout row>
+            <v-layout row class="mb-3">
               <v-flex xs10 sm8 offset-sm2 offset-xs1>
                 <v-card flat>
                   <v-card flat>
@@ -81,6 +77,13 @@
                 </v-card>
               </v-flex>
             </v-layout>
+            <v-layout row v-if="qrcode_data.entropy && qrcode_data.seed">
+              <v-flex xs10 sm8 offset-sm2 offset-xs1 class="mt-3 mb-3">
+                <v-card color="primary" class="white--text text-xs-center" center>
+                  <v-card-text v-t="'initialize.qrcode_loaded'"></v-card-text>
+                </v-card>
+              </v-flex>
+            </v-layout>
             <v-layout row class="mt-3 mb-3">
               <v-flex xs10 sm8 offset-sm2 offset-xs1>
                 <v-card flat>
@@ -89,7 +92,7 @@
                     <v-text-field
                       v-model="password"
                       :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                      :append-icon-cb="() => (password_visible = !password_visible)"
+                      @click:append="() => (password_visible = !password_visible)"
                       :rules="[
                         () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true},
                         () => {return this.password.match(/^[a-zA-Z0-9!@#$%^&*]+$/) ? true : $t('initialize.password_use_invalid_word')}
@@ -141,9 +144,8 @@ export default {
       tab: null,
       password: '',
       password_visible: false,
-      words: [
-        ''
-      ],
+      word: '',
+      words: [],
       phrases: require('bip39').wordlists.english,
       progress: false,
       show_camera: false,
@@ -162,8 +164,11 @@ export default {
   },
   methods: {
     add () {
-      if (this.words[this.words.length - 1] !== '') {
-        this.words.push('')
+      if (this.word && this.word !== '') {
+        this.words.push(this.word)
+        setTimeout(() => {
+          this.word = null
+        }, 100)
       }
     },
     remove (index) {
@@ -218,7 +223,7 @@ export default {
     },
     changeTab () {
       this.qrcode_data = {}
-      if (this.tab === '1') {
+      if (this.tab === 1) {
         if (window.cordova) {
           let permissions = window.cordova.plugins.permissions
           permissions.checkPermission(

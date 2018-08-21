@@ -17,7 +17,7 @@
                   <v-text-field
                     v-model="password"
                     :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                    :append-icon-cb="() => (password_visible = !password_visible)"
+                    @click:append="() => (password_visible = !password_visible)"
                     :rules="[
                       () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true}
                     ]"
@@ -27,27 +27,22 @@
                   ></v-text-field>
                 </v-card>
                 <v-card-actions>
-                  <v-btn block :disabled="password.length < 8" @click="showMnemonic" v-t="'initialize.show_passphrase'"></v-btn>
+                  <v-btn block color="primary" :disabled="password.length < 8" @click="showMnemonic" v-t="'initialize.show_passphrase'"></v-btn>
                 </v-card-actions>
                 <v-card flat>
                   <v-alert v-model="error" type="error" dismissible v-t="'initialize.invalid_password'">
                   </v-alert>
                 </v-card>
-                <v-card-title>
-                  <v-list two-line subheader v-if="show_passphrase">
-                    <v-list-tile
-                      avatar
+                <v-card-title class="mb-4">
+                  <v-container fluid v-if="show_passphrase">
+                    <v-checkbox
                       v-for="(phrase, i) in phrases"
                       :key="i"
-                    >
-                      <v-list-tile-action>
-                        <v-checkbox v-model="check[i]"></v-checkbox>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title :class="check[i] ? 'checked' : ''">{{ phrase }}</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                  </v-list>
+                      :label="phrase"
+                      v-model="check[i]"
+                      :class="`minline ${check[i] ? 'checked' : ''}`"
+                    ></v-checkbox>
+                  </v-container>
                 </v-card-title>
               </v-card>
             </v-flex>
@@ -67,7 +62,10 @@
 
 <style scoped>
 .checked {
-  text-decoration: line-through;
+  background-color: #ccc;
+}
+.minline {
+  height: 2em;
 }
 </style>
 

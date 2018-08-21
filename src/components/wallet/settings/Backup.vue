@@ -9,7 +9,7 @@
               <v-text-field
                 v-model="password"
                 :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                :append-icon-cb="() => (password_visible = !password_visible)"
+                @click:append="togglePasswordVisible()"
                 :rules="[
                   () => {return (this.password !== '' && this.password.length < 8) ? $t('initialize.password_less_length') : true}
                 ]"
@@ -36,7 +36,7 @@
                 v-t="'settings.backup.show_passphrase'"
               ></v-btn>
             </v-card-actions>
-            <v-card-title v-if="show_passphrase">
+            <v-card-title v-if="show_passphrase" class="mb-4">
               <v-layout row>
                 <v-flex>
                   <v-subheader v-t="'settings.backup.qrcode'"></v-subheader>
@@ -49,27 +49,23 @@
                         contain
                       >
                       </v-card-media>
-                      <v-card-actions>
+                      <v-card-text v-if="is_ios_browser" v-t="'settings.backup.for_ios_issue'"></v-card-text>
+                      <v-card-actions v-else>
                         <v-btn block color="primary" dark v-t="'settings.backup.save_qrcode'" @click="saveQRCode()"></v-btn>
                       </v-card-actions>
                     </div>
                   </v-card>
                   <v-divider></v-divider>
                   <v-subheader v-t="'settings.backup.passphrase'"></v-subheader>
-                  <v-list two-line subheader>
-                    <v-list-tile
-                      avatar
+                  <v-container fluid>
+                    <v-checkbox
                       v-for="(phrase, i) in phrases"
                       :key="i"
-                    >
-                      <v-list-tile-action>
-                        <v-checkbox v-model="check[i]"></v-checkbox>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title :class="check[i] ? 'checked' : ''">{{ phrase }}</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                  </v-list>
+                      :label="phrase"
+                      v-model="check[i]"
+                      :class="`minline ${check[i] ? 'checked' : ''}`"
+                    ></v-checkbox>
+                  </v-container>
                 </v-flex>
               </v-layout>
             </v-card-title>
@@ -82,7 +78,7 @@
       v-model="snackbar"
       :timeout="snackbar_timeout"
     >
-      {{ $t('settings.backup.save_qrcode') }}
+      {{ $t('settings.backup.saved_qrcode') }}
       <v-btn flat @click="snackbar = false" v-t="'common.close'">
       </v-btn>
     </v-snackbar>
@@ -91,11 +87,15 @@
 
 <style scoped>
 .checked {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
+  background-color: #ccc;
 }
 .qrcode-info {
   margin: 0 auto;
   text-align: center;
+}
+.minline {
+  height: 2em;
 }
 </style>
 
@@ -115,7 +115,9 @@ export default {
       showing: false,
       qrcode: '',
       snackbar: false,
-      snackbar_timeout: 4000
+      is_fingerprint: false,
+      snackbar_timeout: 4000,
+      is_ios_browser: utils.isiOS() && !window.cordova
     }
   },
   mounted () {
@@ -126,18 +128,30 @@ export default {
     this.show_passphrase = false
 
     utils.verifyTouchID().then(password => {
+      if (password) {
+        this.is_fingerprint = true
+      } else {
+        this.is_fingerprint = false
+      }
       this.password = password
     }).catch(e => {
       console.log(e)
+      this.is_fingerprint = false
       this.password = ''
     })
 
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: false,
-      camera: false
+      camera: false,
+      back: true
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('settings.make_backup'))
+
+    this.$globalEvent.$on('back-button-pushed', this.backButtonPushed)
+  },
+  destroyed () {
+    this.$globalEvent.$off('back-button-pushed', this.backButtonPushed)
   },
   computed: {
     complete () {
@@ -232,12 +246,23 @@ export default {
       } else {
         let link = document.createElement('a')
         link.download = 'vips_wallet_backup.png'
-        link.href = this.qrcode
+        link.href = window.URL.createObjectURL(blob)
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
         console.log(link)
       }
+    },
+    togglePasswordVisible () {
+      if (this.is_fingerprint) {
+        this.password_visible = false
+        this.$globalEvent.$emit('open-error-dialog', this.$t('common.password_not_show'))
+      } else {
+        this.password_visible = !this.password_visible
+      }
+    },
+    backButtonPushed () {
+      this.$router.push('/wallet/settings')
     }
   }
 }

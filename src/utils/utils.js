@@ -148,13 +148,11 @@ function openQRCodeImage () {
 }
 
 function openImageFile () {
-  let promise = Promise.reject(new Error('unsupported device'))
+  let fn = openFileForBrowser
   if (window.cordova) {
-    promise = openImageFileForMobile()
-  } else {
-    promise = openFileForBrowser()
+    fn = openImageFileForMobile
   }
-  return promise
+  return fn()
 }
 
 function openImageFileForMobile () {
@@ -189,8 +187,10 @@ function openImageFileForMobile () {
 function openFileForBrowser () {
   let file = document.createElement('input')
   file.type = 'file'
+  document.body.appendChild(file)
   return new Promise((resolve, reject) => {
     file.onchange = (ev) => {
+      document.body.removeChild(file)
       let files = ev.target.files || ev.dataTransfer.files
       if (files.length) {
         resolve(files[0])
@@ -226,6 +226,20 @@ function base64ToBlob (base64) {
   return blob
 }
 
+function isiOS () {
+  let ua = window.navigator.userAgent.toLowerCase()
+  return (ua.indexOf('iphone') !== -1 || ua.indexOf('ipod') !== -1 || ua.indexOf('ipad') !== -1)
+}
+
+function isMobileSafari () {
+  let ua = window.navigator.userAgent.toLowerCase()
+  return (isiOS() && ua.indexOf('safari') !== -1)
+}
+
+function isCameraSupport () {
+  return (navigator.mediaDevices !== undefined && navigator.mediaDevices.getUserMedia !== undefined)
+}
+
 export default {
   walletExists: walletExists,
   walletLoaded: walletLoaded,
@@ -244,5 +258,8 @@ export default {
   openImageFile: openImageFile,
   openImageFileForMobile: openImageFileForMobile,
   openFileForBrowser: openFileForBrowser,
-  base64ToBlob: base64ToBlob
+  base64ToBlob: base64ToBlob,
+  isiOS: isiOS,
+  isMobileSafari: isMobileSafari,
+  isCameraSupport: isCameraSupport
 }

@@ -76,11 +76,10 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs4>
-                <v-select
+                <v-autocomplete
                   :items="currencies"
                   v-model="amountType"
-                  autocomplete
-                ></v-select>
+                ></v-autocomplete>
               </v-flex>
             </v-layout>
             <v-layout row>
@@ -165,24 +164,26 @@
             </v-list-tile>
           </v-list>
         </v-card-text>
-        <v-layout center justify>
-          <v-flex xs10 offset-xs1>
-            <v-text-field
-              v-model="password"
-              :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-              :append-icon-cb="() => (password_visible = !password_visible)"
-              :rules="[
-              () => {return (this.password.length < 8 && this.password.length > 0) ? $t('initialize.password_less_length') : true}
-              ]"
-              :type="password_visible ? 'text' : 'password'"
-              :label="$t('common.input_password')"
-            ></v-text-field>
-          </v-flex>
-        </v-layout>
-        <v-card-actions>
-          <v-btn block color="primary" :disabled="sending" @click.native="cancel()" v-t="'common.cancel'"></v-btn>
-          <v-btn block color="primary" :loading="sending" :disabled="sending" @click.native="send()" v-t="'send.send'"></v-btn>
-        </v-card-actions>
+        <v-card flat>
+          <v-layout center justify>
+            <v-flex xs10 offset-xs1>
+              <v-text-field
+                v-model="password"
+                :append-icon="password_visible ? 'visibility' : 'visibility_off'"
+                @click:append="togglePasswordVisible()"
+                :rules="[
+                () => {return (this.password.length < 8 && this.password.length > 0) ? $t('initialize.password_less_length') : true}
+                ]"
+                :type="password_visible ? 'text' : 'password'"
+                :label="$t('common.input_password')"
+              ></v-text-field>
+            </v-flex>
+          </v-layout>
+          <v-card-actions>
+            <v-btn block color="primary" :disabled="sending" @click.native="cancel()" v-t="'common.cancel'"></v-btn>
+            <v-btn block color="primary" :loading="sending" :disabled="sending" @click.native="send()" v-t="'send.send'"></v-btn>
+          </v-card-actions>
+        </v-card>
       </v-card>
     </v-dialog>
     <v-dialog v-model="error" max-width="500px">
@@ -280,7 +281,8 @@ export default {
       receiver_message: '',
       building: false,
       sending: false,
-      camera_config: CONST.QRCODE_CAMERA_CONFIG
+      camera_config: CONST.QRCODE_CAMERA_CONFIG,
+      is_fingerprint: false
     }
   },
   mounted () {
@@ -293,7 +295,8 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: true,
       refresh: true,
-      camera: true
+      camera: true,
+      back: false
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('send.description'))
     this.$globalEvent.$emit('do-update-wallet-info')
@@ -368,6 +371,10 @@ export default {
         return
       }
       this.address = uri.address
+      this.focused = ''
+      this.amount = ''
+      this.fiat = ''
+
       let amount = ''
       if (uri.options.amountExt && uri.options.amountType) {
         if (CONST.CURRENCIES.includes(uri.options.amountType)) {
@@ -477,9 +484,15 @@ export default {
         utils.verifyTouchID().then((password) => {
           this.password = password
           this.confirmation = true
+          if (password) {
+            this.is_fingerprint = true
+          } else {
+            this.is_fingerprint = false
+          }
         }).catch(e => {
           console.log(e)
           this.confirmation = true
+          this.is_fingerprint = false
         })
       }).catch(error => {
         this.build_error = true
@@ -559,6 +572,7 @@ export default {
       this.show_camera = false
       this.camera_error = true
       this.error_detail = error.message
+      this.$store.commit('setUseCamera', false)
       console.error(error)
     },
     onCameraDecodeError (error) {
@@ -614,10 +628,21 @@ export default {
         this.$globalEvent.$emit('open-error-dialog', {
           detail: this.$t('send.error.update_fiat_rate_failed'),
           callback: () => {
+            if (CONST.CURRENCIES.indexOf(this.amountType) === -1) {
+              this.amountType = this.$store.state.fiatCurrency
+            }
             setTimeout(this.updateFiatRate, 500)
           }
         })
       })
+    },
+    togglePasswordVisible () {
+      if (this.is_fingerprint) {
+        this.password_visible = false
+        this.$globalEvent.$emit('open-error-dialog', this.$t('common.password_not_show'))
+      } else {
+        this.password_visible = !this.password_visible
+      }
     }
   },
   watch: {

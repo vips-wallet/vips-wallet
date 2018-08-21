@@ -19,7 +19,7 @@
               <v-text-field
                 v-model="password"
                 :append-icon="password_visible ? 'visibility' : 'visibility_off'"
-                :append-icon-cb="() => (password_visible = !password_visible)"
+                @click:append="() => (password_visible = !password_visible)"
                 :rules="[
                   () => {return this.password.length < 8 ? $t('initialize.password_less_length') : true}
                 ]"
@@ -88,9 +88,15 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: false,
-      camera: false
+      camera: false,
+      back: true
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('settings.fingerprint'))
+
+    this.$globalEvent.$on('back-button-pushed', this.backButtonPushed)
+  },
+  destroyed () {
+    this.$globalEvent.$off('back-button-pushed', this.backButtonPushed)
   },
   methods: {
     async isAvailable () {
@@ -146,6 +152,9 @@ export default {
         this.enable = false
         this.available = false
       }
+    },
+    backButtonPushed () {
+      this.$router.push('/wallet/settings')
     }
   }
 }

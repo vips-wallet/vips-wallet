@@ -95,7 +95,7 @@
             <v-list-tile v-if="detail.message">
               <v-list-tile-content>
                 <v-list-tile-title v-t="'history.message'"></v-list-tile-title>
-                <v-list-tile-sub-title>{{ detail.message }}</v-list-tile-sub-title>
+                <v-list-tile-sub-title class="wrap">{{ detail.message }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
@@ -153,6 +153,10 @@
 .scrollable {
   overflow-x: scroll;
 }
+.wrap {
+  word-break : break-all;
+  overflow-wrap: break-word;
+}
 </style>
 
 <script>
@@ -177,7 +181,8 @@ export default {
       txs: [],
       total: 0,
       detail: {},
-      show_detail: false
+      show_detail: false,
+      updating: false
     }
   },
   mounted () {
@@ -186,7 +191,8 @@ export default {
     this.$globalEvent.$emit('toolbar-button-visible', {
       delete: false,
       refresh: true,
-      camera: false
+      camera: false,
+      back: false
     })
     this.$globalEvent.$emit('toolbar-title', this.$t('history.description'))
     this.updateHistory()
@@ -196,7 +202,11 @@ export default {
   },
   methods: {
     updateHistory () {
+      if (this.updating) {
+        return
+      }
       this.loaded = false
+      this.updating = true
       this.txs = []
       if (this.$store.state.account) {
         this.$store.state.account.getTXs([], 0, 10).then(data => {
@@ -205,6 +215,8 @@ export default {
           this.loaded = true
         }).catch(e => {
           this.$globalEvent.$emit('open-error-dialog', this.$t('home.error.connection_failed'))
+        }).finally(() => {
+          this.updating = false
         })
       }
     },

@@ -52,13 +52,16 @@
       app
       :clipped-left="clipped"
     >
-      <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="toggleDrawer()" v-if="cameraButton"></v-toolbar-side-icon>
+      <v-btn icon @click.stop="backButtonPushed()" v-if="backButtonVisible && cameraButton">
+        <v-icon>arrow_back</v-icon>
+      </v-btn>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="deleteButtonPushed()" v-if="deleteButtonVisible">
+      <v-btn icon @click.stop="deleteButtonPushed()" v-if="deleteButtonVisible && cameraButton">
         <v-icon>delete</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="refreshWalletInfo()" v-if="refreshButtonVisible">
+      <v-btn icon @click.stop="refreshWalletInfo()" v-if="refreshButtonVisible && cameraButton">
         <v-icon>refresh</v-icon>
       </v-btn>
       <v-btn icon @click.stop="cameraButtonPushed()" v-if="cameraButtonVisible">
@@ -72,6 +75,8 @@
     <v-footer :fixed="fixed" app>
       <span>&copy; 2018 VIPSTARCOIN</span>
     </v-footer>
+    <license-agreement @agree="onAgree()"/>
+    <limit-notify v-model="notify"/>
   </v-app>
 </template>
 
@@ -83,6 +88,8 @@ a {
 </style>
 
 <script>
+import LicenseAgreement from '@/components/LicenseAgreement'
+import LimitNotify from '@/components/LimitNotify'
 import utils from '@/utils/utils'
 
 let minimize = localStorage.getItem('minimize')
@@ -90,6 +97,10 @@ minimize = (minimize) ? JSON.parse(minimize) : false
 
 export default {
   name: 'Wallet',
+  components: {
+    LicenseAgreement,
+    LimitNotify
+  },
   data () {
     return {
       clipped: false,
@@ -100,6 +111,7 @@ export default {
       deleteButtonVisible: false,
       refreshButtonVisible: false,
       cameraButtonVisible: false,
+      backButtonVisible: false,
       account_label: '',
       items: [
         { icon: 'home', title: 'menu.home', route: '/wallet/home' },
@@ -109,7 +121,17 @@ export default {
         { icon: 'settings', title: 'menu.settings', route: '/wallet/settings' }
       ],
       title: '',
-      cameraButton: true
+      notify: false
+    }
+  },
+  computed: {
+    cameraButton: {
+      get () {
+        return !this.$store.state.useCamera
+      },
+      set (value) {
+        this.$store.commit('setUseCamera', !value)
+      }
     }
   },
   mounted () {
@@ -142,6 +164,8 @@ export default {
             this.cameraButton = true
             this.cameraButtonVisible = opt[key]
             break
+          case 'back':
+            this.backButtonVisible = opt[key]
         }
       })
     })
@@ -173,6 +197,10 @@ export default {
         this.$globalEvent.$emit('error-update-wallet-info', error)
       })
     })
+
+    if (this.$store.state.agreement) {
+      this.notify = true
+    }
   },
   methods: {
     toggleDrawer (event) {
@@ -219,6 +247,12 @@ export default {
     },
     deleteButtonPushed () {
       this.$globalEvent.$emit('delete-button-pushed')
+    },
+    backButtonPushed () {
+      this.$globalEvent.$emit('back-button-pushed')
+    },
+    onAgree () {
+      this.notify = true
     }
   },
   watch: {

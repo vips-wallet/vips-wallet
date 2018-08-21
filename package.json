@@ -1,6 +1,6 @@
 {
   "name": "vips-wallet",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "VIPSTARCOIN light wallet",
   "author": "Koutarou Tanaka <from.kyushu.island@gmail.com>",
   "license": "GPLv3",
@@ -49,15 +49,15 @@
     "moment": "^2.22.1",
     "qrcode": "^1.2.0",
     "uuid": "^3.2.1",
-    "vipstarcoinjs-wallet-core": "^0.0.1",
+    "vipstarcoinjs-wallet-core": "vips-wallet/vipstarcoinjs-wallet-core#v0.0.4",
     "vue": "^2.5.16",
     "vue-cordova": "^0.1.2",
     "vue-head": "^2.0.12",
     "vue-i18n": "^7.8.0",
     "vue-mugen-scroll": "^0.2.5",
-    "vue-qrcode-reader": "^0.8.3",
+    "vue-qrcode-reader": "^0.8.5",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.0.18",
+    "vuetify": "^1.1.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
