@@ -8,6 +8,7 @@ test/unit/coverage
 test/e2e/reports
 selenium-debug.log
 .keystore
+.envrc
 
 # Editor directories and files
 .idea/
