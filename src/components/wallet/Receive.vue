@@ -332,6 +332,9 @@ export default {
         this.$globalEvent.$emit('open-error-dialog', {
           detail: this.$t('send.error.update_fiat_rate_failed'),
           callback: () => {
+            if (CONST.CURRENCIES.indexOf(this.amountType) === -1) {
+              this.amountType = this.$store.state.fiatCurrency
+            }
             setTimeout(this.updateFiatRate, 500)
           }
         })
