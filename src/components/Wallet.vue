@@ -6,6 +6,7 @@
       v-model="drawer"
       enable-resize-watcher fixed
       app
+      v-if="cameraButton"
     >
       <v-list>
           <v-list-tile>
