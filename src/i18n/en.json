@@ -126,6 +126,7 @@
       "required_valid_fiat": "Invalid current value in FIAT",
       "required_valid_message": "Message too long",
       "update_balance_failed": "Failed to load available balance",
+      "update_fiat_rate_failed": "Failed to update fiat currency exchange rate",
       "build_transaction_failed": "Failed to generate transaction",
       "send_transaction_failed": "Transaction Failed"
     }

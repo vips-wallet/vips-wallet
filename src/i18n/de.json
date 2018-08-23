@@ -126,6 +126,7 @@
       "required_valid_fiat": "Falsche Eingabe bei der gesetzlichen Währung.",
       "required_valid_message": "Nachricht zu lang",
       "update_balance_failed": "Aktualisierung vom verfügbaren Betrag fehlgeschlagen.",
+      "update_fiat_rate_failed": "Aktualisierung des Fiat-Wechselkurses fehlgeschlagen",
       "build_transaction_failed": "Transaktionserstellung fehlgeschlagen",
       "send_transaction_failed": "Senden fehlgeschlagen"
     }
