@@ -374,6 +374,8 @@ export default {
       this.focused = ''
       this.amount = ''
       this.fiat = ''
+      this.message = ''
+      this.include_rate = false
 
       let amount = ''
       if (uri.options.amountExt && uri.options.amountType) {
