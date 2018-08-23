@@ -129,6 +129,7 @@ export default {
 
     utils.verifyTouchID().then(password => {
       if (password) {
+        this.password_visible = false
         this.is_fingerprint = true
       } else {
         this.is_fingerprint = false

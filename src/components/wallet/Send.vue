@@ -485,6 +485,7 @@ export default {
           this.password = password
           this.confirmation = true
           if (password) {
+            this.password_visible = false
             this.is_fingerprint = true
           } else {
             this.is_fingerprint = false
@@ -508,6 +509,7 @@ export default {
       this.addressPath = []
       this.txfee = 0
       this.password = ''
+      this.password_visible = false
       this.confirmation = false
     },
     send () {
@@ -541,6 +543,7 @@ export default {
     },
     clear () {
       this.password = ''
+      this.password_visible = false
       this.address = ''
       this.amount = ''
       this.fiat = ''
