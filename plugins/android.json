@@ -10,6 +10,9 @@
     "cordova-plugin-android-permissions": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    },
     "cordova-plugin-customurlscheme": {
       "URL_SCHEME": "vipstarcoin",
       "ANDROID_SCHEME": " ",
@@ -20,7 +23,7 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
-    "cordova-plugin-keychain-touch-id": {
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
     "cordova-plugin-splashscreen": {
@@ -32,13 +35,10 @@
     "cordova-plugin-x-socialsharing": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
-    },
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
-    },
     "es6-promise-plugin": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    },
+    "cordova-plugin-keychain-touch-id": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     }
   },
