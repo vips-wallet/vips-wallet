@@ -125,11 +125,12 @@ export default {
             window.plugins.touchid.save(
               'password',
               this.password,
+              true,
               () => {
                 this.snackbar = true
               },
               () => {
-                this.$globalEvent.$emit('open-error-dialog', this.$t('settings.fingerprint_detail.error.faled_save'))
+                this.$globalEvent.$emit('open-error-dialog', this.$t('settings.fingerprint_detail.error.failed_save'))
               }
             )
           } else {
