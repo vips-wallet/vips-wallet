@@ -270,7 +270,7 @@ export default {
         if (vout.scriptPubKey.hex && vout.scriptPubKey.hex.substr(0, 2) === '6a') {
           let message = messageutil.decode(vout.scriptPubKey.hex)
           if (this.isRateMessage(message)) {
-            tx.rate = this.parseRate(message)
+            tx.rate = messageutil.parseRate(message)
           } else {
             tx.message = message
           }
@@ -314,26 +314,6 @@ export default {
     closeDetail () {
       document.getElementById('txdetail').scrollTop = 0
       this.show_detail = false
-    },
-    parseRate (message) {
-      let version = message.match(/^(v\d+\.\d+\.\d+)\|RATE/)
-      if (!version || !version[1]) {
-        return null
-      }
-
-      switch (version[1]) {
-        case 'v1.0.0':
-          return this.parseRateV1(message)
-        default:
-          return null
-      }
-    },
-    parseRateV1 (message) {
-      let sp = message.split('|')
-      return {
-        rate: new BigNumber(sp[3]).toNumber(),
-        currency: sp[2]
-      }
     },
     isRateMessage (message) {
       return !!message.match(/^v\d+\.\d+\.\d+\|RATE/)
