@@ -471,7 +471,7 @@ export default {
       }
       if (this.include_rate) {
         opt.extra_data.push({
-          address: messageutil.encode(`v1.0.0|RATE|${this.amountType}|${this.fiatRate.toString()}`),
+          address: messageutil.encodeRate(this.amountType, this.fiatRate.toString()),
           value: 0
         })
       }
