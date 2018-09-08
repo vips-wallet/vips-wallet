@@ -70,6 +70,7 @@
     "restore_phrase": "Restore Phrase",
     "restore_phrase_description": "Enter passphrase of the wallet you want to restore",
     "restore_qrcode": "QR Code",
+    "reset_qrcode": "Select another QR Code",
     "qrcode_loaded": "QR Code loaded.",
     "qrcode_password_description": "Please enter the password you specified in the old wallet.",
     "import_failed": "Failed to restore wallet"
@@ -255,7 +256,7 @@
       "version": "Vestion",
       "bugreport": "Report bug",
       "open_bugreport_form": "Open bug reporting form",
-      "license": "ソフトウェアライセンス",
+      "license": "Software License",
       "sourcecode": "Source code"
     }
   }
