@@ -70,6 +70,7 @@
     "restore_phrase": "Passphrase",
     "restore_phrase_description": "Bitte die Passphrase für das zu wiederherstellende Wallet eingeben.",
     "restore_qrcode": "QR-Code",
+    "reset_qrcode": "Wählen Sie einen anderen QR-Code",
     "qrcode_loaded": "QR-Code geladen",
     "qrcode_password_description": "Bitte geben Sie das Passwort ein, das Sie in der vorherigen Brieftasche angegeben haben.",
     "import_failed": "Wiederherstellung fehlgeschlagen"
