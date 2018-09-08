@@ -41,6 +41,7 @@
     "receive": "受取",
     "send": "送金",
     "history": "履歴",
+    "sign": "署名/検証",
     "settings": "設定"
   },
   "license": {
@@ -48,7 +49,6 @@
     "message1": " このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 一般公衆利用許諾書(バージョン3か、それ以降のバージョンのうちどれか)が定める条件の下で再頒布または改変することができます。",
     "message2": "このプログラムは有用であることを願って頒布されますが、全くの無保証です。商業可能性の保証や特定目的への適合性は、言外に示されたものも含め、全く存在しません。詳しくはGNU 一般公衆利用許諾書をご覧ください。",
     "message3": "下記リンクからGNU 一般公衆利用許諾書をよく読んだ上で「同意する」ボタンを押してお進みください。",
-
     "link": "GNU 一般公衆利用許諾書の全文を表示する",
     "sourcecode": "ソースコード"
   },
@@ -131,6 +131,23 @@
       "update_fiat_rate_failed": "法定通貨換算額の更新に失敗しました",
       "build_transaction_failed": "トランザクション生成に失敗しました。",
       "send_transaction_failed": "送金に失敗しました。"
+    }
+  },
+  "sign": {
+    "description": "署名/検証",
+    "sign": "署名",
+    "message": "メッセージ",
+    "sign_address": "アドレス",
+    "sign_result": "署名結果",
+    "copy_sign": "署名結果をコピー",
+    "verify": "検証",
+    "verify_address": "検証するアドレス",
+    "verify_sign": "検証する署名",
+    "verify_success": "署名の検証に成功しました",
+    "verify_failed": "署名の検証に失敗しました",
+    "error": {
+      "required_valid_address": "有効なVIPSアドレスを入力してください",
+      "sign_failed": "署名に失敗しました"
     }
   },
   "history": {

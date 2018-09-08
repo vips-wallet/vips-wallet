@@ -41,6 +41,7 @@
     "receive": "Receive",
     "send": "Send",
     "history": "History",
+    "sign": "Sign/Verify",
     "settings": "Settings"
   },
   "license": {
@@ -129,6 +130,23 @@
       "update_fiat_rate_failed": "Failed to update fiat currency exchange rate",
       "build_transaction_failed": "Failed to generate transaction",
       "send_transaction_failed": "Transaction Failed"
+    }
+  },
+  "sign": {
+    "description": "Sign/Verify",
+    "sign": "Sign",
+    "message": "Message",
+    "sign_address": "Address",
+    "sign_result": "Result",
+    "copy_sign": "Copy sign",
+    "verify": "Verify",
+    "verify_address": "Address",
+    "verify_sign": "Sign",
+    "verify_success": "Successfully verified the signature.",
+    "verify_failed": "Failed verified the signature.",
+    "error": {
+      "required_valid_address": "Enter valid VIPS address",
+      "sign_failed": "Signature failed"
     }
   },
   "history": {

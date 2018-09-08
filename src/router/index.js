@@ -10,6 +10,7 @@ import Wallet from '@/components/Wallet'
 import WalletHome from '@/components/wallet/Home'
 import WalletReceive from '@/components/wallet/Receive'
 import WalletSend from '@/components/wallet/Send'
+import WalletSign from '@/components/wallet/Sign'
 import WalletHistory from '@/components/wallet/History'
 import WalletSettings from '@/components/wallet/Settings'
 import WalletSettingsLocale from '@/components/wallet/settings/Locale'
@@ -65,6 +66,10 @@ export default new Router({
         {
           path: 'send',
           component: WalletSend
+        },
+        {
+          path: 'sign',
+          component: WalletSign
         },
         {
           path: 'history',
