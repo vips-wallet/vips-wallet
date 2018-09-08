@@ -41,6 +41,7 @@
     "receive": "Empfangen",
     "send": "Senden",
     "history": "Verlauf",
+    "sign": "Signatur/Überprüfen",
     "settings": "Einstellung"
   },
   "license": {
@@ -129,6 +130,23 @@
       "update_fiat_rate_failed": "Aktualisierung des Fiat-Wechselkurses fehlgeschlagen",
       "build_transaction_failed": "Transaktionserstellung fehlgeschlagen",
       "send_transaction_failed": "Senden fehlgeschlagen"
+    }
+  },
+  "sign": {
+    "description": "Signatur/Überprüfen",
+    "sign": "Signatur",
+    "message": "Nachrichten",
+    "sign_address": "VIPS-Adresse",
+    "sign_result": "Ergebnis",
+    "copy_sign": "Kopie der Signatur",
+    "verify": "Überprüfen",
+    "verify_address": "VIPS-Adresse",
+    "verify_sign": "Signatur",
+    "verify_success": "Signaturüberprüfung erfolgreich",
+    "verify_failed": "Überprüfung der Signatur fehlgeschlagen",
+    "error": {
+      "required_valid_address": "Bitte eine gültige VIPS-Adresse eingeben",
+      "sign_failed": "Signatur fehlgeschlagen"
     }
   },
   "history": {

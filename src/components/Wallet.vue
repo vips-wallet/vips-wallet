@@ -119,6 +119,7 @@ export default {
         { icon: 'archive', title: 'menu.receive', route: '/wallet/receive' },
         { icon: 'open_in_browser', title: 'menu.send', route: '/wallet/send' },
         { icon: 'history', title: 'menu.history', route: '/wallet/history' },
+        { icon: 'gesture', title: 'menu.sign', route: '/wallet/sign' },
         { icon: 'settings', title: 'menu.settings', route: '/wallet/settings' }
       ],
       title: '',
