@@ -26,6 +26,32 @@ const constants = {
       height: { min: 240, ideal: 480, max: 1080 },
       frameRate: { min: 10, ideal: 25 }
     }
+  },
+  BIGNUMBER_FORMATS: {
+    PLAIN: {
+      decimalSeparator: '.',
+      groupSeparator: '',
+      groupSize: 3,
+      secondaryGroupSize: 0,
+      fractionGroupSeparator: ' ',
+      fractionGroupSize: 0
+    },
+    COMMA: {
+      decimalSeparator: '.',
+      groupSeparator: ',',
+      groupSize: 3,
+      secondaryGroupSize: 0,
+      fractionGroupSeparator: ' ',
+      fractionGroupSize: 0
+    },
+    SPACE: {
+      decimalSeparator: '.',
+      groupSeparator: ' ',
+      groupSize: 3,
+      secondaryGroupSize: 0,
+      fractionGroupSeparator: ' ',
+      fractionGroupSize: 0
+    }
   }
 }
 
