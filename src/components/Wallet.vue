@@ -92,6 +92,9 @@ a {
 import LicenseAgreement from '@/components/LicenseAgreement'
 import LimitNotify from '@/components/LimitNotify'
 import utils from '@/utils/utils'
+import CONST from '@/utils/const'
+
+import {BigNumber} from 'bignumber.js'
 
 let minimize = localStorage.getItem('minimize')
 minimize = (minimize) ? JSON.parse(minimize) : false
@@ -140,6 +143,12 @@ export default {
     let config = localStorage.getItem('wallets')
     if (!config) {
       this.$router.push('/initialize/start')
+    }
+
+    if (this.$store.state.numberFormat) {
+      BigNumber.config({
+        FORMAT: CONST.BIGNUMBER_FORMATS[this.$store.state.numberFormat]
+      })
     }
 
     utils.handleOpenURICallback((uri) => {

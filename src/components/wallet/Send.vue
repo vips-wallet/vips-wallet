@@ -20,7 +20,7 @@
                 <v-list-tile>
                   <v-list-tile-content>
                     <v-list-tile-title v-t="'send.available_balance'"></v-list-tile-title>
-                    <v-list-tile-sub-title>{{ balance.toString() }} VIPS</v-list-tile-sub-title>
+                    <v-list-tile-sub-title>{{ balance.toFormat(8) }} VIPS</v-list-tile-sub-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile v-if="receiver_message != ''">
@@ -130,14 +130,14 @@
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title v-t="'send.amount'"></v-list-tile-title>
-                <v-list-tile-sub-title>{{ amount }} VIPS</v-list-tile-sub-title>
+                <v-list-tile-sub-title>{{ formatted_amount }} VIPS</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider></v-divider>
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title v-t="'send.fiat'"></v-list-tile-title>
-                <v-list-tile-sub-title>{{ fiat }} {{ amountType }}</v-list-tile-sub-title>
+                <v-list-tile-sub-title>{{ formatted_fiat }} {{ amountType }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider></v-divider>
@@ -258,6 +258,8 @@ export default {
       balance: new BigNumber(0),
       address: '',
       amount: '',
+      formatted_amount: '',
+      formatted_fiat: '',
       fiat: '',
       fiatRate: this.$store.state.price,
       txfee: 0.004,
@@ -652,6 +654,8 @@ export default {
   },
   watch: {
     amount () {
+      this.formatted_amount = (new BigNumber(this.amount)).toFormat(8)
+
       if (this.focused !== 'amount') {
         return
       }
@@ -662,6 +666,8 @@ export default {
       }
     },
     fiat () {
+      this.formatted_fiat = (new BigNumber(this.fiat)).toFormat(8)
+
       if (this.focused !== 'fiat') {
         return
       }

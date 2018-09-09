@@ -232,7 +232,7 @@ export default {
         return {
           address: vin.addr,
           mine: (addrs.indexOf(vin.addr) > -1),
-          value: vin.value
+          value: (new BigNumber(vin.value)).toFormat(8)
         }
       })
       tx.outAddresses = Array.prototype.concat.apply([], tx.vout.map(vout => {
@@ -241,7 +241,7 @@ export default {
             return {
               address: addr,
               mine: (addrs.indexOf(addr) > -1),
-              value: vout.value
+              value: (new BigNumber(vout.value)).toFormat(8)
             }
           })
         }
@@ -277,15 +277,18 @@ export default {
         }
       })
 
-      tx.inBalance = inBalance.dp(8).toNumber()
-      tx.outBalance = outBalance.dp(8).toNumber()
+      tx.inBalance = inBalance.toFormat(8)
+      tx.outBalance = outBalance.toFormat(8)
       if (inBalance.toNumber() > 0) {
-        tx.transferBalance = outBalance.minus(inBalance).dp(8).toNumber()
+        tx.transferBalance = outBalance.minus(inBalance).toFormat(8)
         tx.sendTx = true
       } else {
-        tx.transferBalance = outBalance.dp(8).toNumber()
+        tx.transferBalance = outBalance.toFormat(8)
         tx.receiveTx = true
       }
+
+      tx.valueIn = (new BigNumber(tx.valueIn)).toFormat(8)
+      tx.valueOut = (new BigNumber(tx.valueOut)).toFormat(8)
 
       tx.display_confirmations = (tx.confirmations > 10) ? '10+' : tx.confirmations
 
