@@ -12,6 +12,15 @@
             </v-list-tile-content>
           </v-list-tile>
           <v-divider></v-divider>
+          <v-list-tile @click="$router.push('/wallet/settings/number_format')">
+            <v-list-tile-action>
+              <v-icon>looks_one</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title v-t="'settings.change_number_format'"></v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-divider></v-divider>
           <v-list-tile @click="$router.push('/wallet/settings/currency')">
             <v-list-tile-action>
               <v-icon>attach_money</v-icon>

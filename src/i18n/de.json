@@ -183,6 +183,11 @@
       "english": "Englisch",
       "german": "Deutsch"
     },
+    "number_formats": {
+      "plain": "Kein Trennzeichen",
+      "comma": "Komma Trennzeichen",
+      "space": "Leeres Trennzeichen"
+    },
     "currency": {
       "AUD": "AUD - Australische Dollar",
       "BRL": "BRL - Brasilianischer Real",

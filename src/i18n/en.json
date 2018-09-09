@@ -171,6 +171,7 @@
   "settings": {
     "description": "Settings",
     "change_locale": "Language",
+    "change_number_format": "Change number format",
     "change_currency": "Change FIAT",
     "fingerprint": "Fingerprint",
     "change_password": "Change Password",
@@ -182,6 +183,11 @@
       "japanese": "Japanese",
       "english": "English",
       "german": "German"
+    },
+    "number_formats": {
+      "plain": "No separator",
+      "comma": " Comma separator",
+      "space": "Space separator"
     },
     "currency": {
       "AUD": "AUD",

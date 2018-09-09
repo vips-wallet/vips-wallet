@@ -171,6 +171,7 @@
   "settings": {
     "description": "設定",
     "change_locale": "言語",
+    "change_number_format": "数字表記の変更",
     "change_currency": "法定通貨の変更",
     "fingerprint": "指紋認証",
     "change_password": "パスワードの変更",
@@ -182,6 +183,11 @@
       "japanese": "日本語",
       "english": "英語",
       "german": "ドイツ語"
+    },
+    "number_formats": {
+      "plain": "区切りなし",
+      "comma": " カンマ区切り",
+      "space": "スペース区切り"
     },
     "currency": {
       "AUD": "AUD - オーストラリア・ドル",
