@@ -14,6 +14,7 @@ import WalletSign from '@/components/wallet/Sign'
 import WalletHistory from '@/components/wallet/History'
 import WalletSettings from '@/components/wallet/Settings'
 import WalletSettingsLocale from '@/components/wallet/settings/Locale'
+import WalletSettingsNumberFormat from '@/components/wallet/settings/NumberFormat'
 import WalletSettingsCurrency from '@/components/wallet/settings/Currency'
 import WalletSettingsFingerprint from '@/components/wallet/settings/Fingerprint'
 import WalletSettingsBackup from '@/components/wallet/settings/Backup'
@@ -82,6 +83,10 @@ export default new Router({
         {
           path: 'settings/locale',
           component: WalletSettingsLocale
+        },
+        {
+          path: 'settings/number_format',
+          component: WalletSettingsNumberFormat
         },
         {
           path: 'settings/currency',

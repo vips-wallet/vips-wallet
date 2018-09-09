@@ -25,7 +25,8 @@ const store = new Vuex.Store({
     updateTime: moment(),
     uri: null,
     agreement: (localStorage.getItem('agreement') === '1'),
-    useCamera: false
+    useCamera: false,
+    numberFormat: localStorage.getItem('numberFormat') || 'PLAIN'
   },
   mutations: {
     setWallet (state, walletGroup) {
@@ -86,6 +87,13 @@ const store = new Vuex.Store({
     },
     toggleUseCamera (state) {
       state.useCamera = !state.useCamera
+    },
+    setNumberFormat (state, format) {
+      state.numberFormat = format
+      localStorage.setItem('numberFormat', format)
+      BigNumber.config({
+        FORMAT: CONST.BIGNUMBER_FORMATS[format]
+      })
     }
   },
   actions: {

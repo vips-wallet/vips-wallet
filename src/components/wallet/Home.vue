@@ -16,16 +16,16 @@
         <v-card-title primary-title>
           <div class="balance-info">
             <div class="headline" v-t="'home.confirmed_balance'"></div>
-            <span class="red--text balance">{{ $store.state.walletInfo.balance.toString() }} VIPS</span>
+            <span class="red--text balance">{{ $store.state.walletInfo.balance.toFormat(8) }} VIPS</span>
             <span
               class="gray--text"
               v-if="$store.state.walletInfo.unconfirmedBalance > 0"
-              v-t="{path: 'home.unconfirmed', args: {unconfirmed: $store.state.walletInfo.unconfirmedBalance.toString()}}"
+              v-t="{path: 'home.unconfirmed', args: {unconfirmed: $store.state.walletInfo.unconfirmedBalance.toFormat(8)}}"
             ></span>
             <div class="headline" v-t="'home.fiat'"></div>
             <span
               class="red--text balance"
-              v-t="{path: 'home.fiat_balance', args: {amount: $store.state.walletInfo.fiatBalance.toString(), currency: $store.state.fiatCurrency}}"
+              v-t="{path: 'home.fiat_balance', args: {amount: $store.state.walletInfo.fiatBalance.toFormat(8), currency: $store.state.fiatCurrency}}"
             ></span><br />
           <span class="gray--text" v-t="{path: 'home.fiat_fetch_time', args: {time: $store.state.updateTime.format('YYYY/MM/DD HH:mm:ss')}}"></span>
           </div>
