@@ -3,6 +3,7 @@ import { WalletGroup } from 'vipstarcoinjs-wallet-core'
 import moment from 'moment'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import storage from '@/storage'
 import utils from '@/utils/utils'
 import CONST from '@/utils/const'
 
@@ -16,7 +17,7 @@ const store = new Vuex.Store({
     password_required: false,
     qrcodeDataUri: null,
     price: 0,
-    fiatCurrency: localStorage.getItem('currency') || 'JPY',
+    fiatCurrency: 'JPY',
     walletInfo: {
       balance: 0,
       uncormedBalance: 0,
@@ -24,9 +25,9 @@ const store = new Vuex.Store({
     },
     updateTime: moment(),
     uri: null,
-    agreement: (localStorage.getItem('agreement') === '1'),
+    agreement: false,
     useCamera: false,
-    numberFormat: localStorage.getItem('numberFormat') || 'PLAIN'
+    numberFormat: 'PLAIN'
   },
   mutations: {
     setWallet (state, walletGroup) {
@@ -56,6 +57,7 @@ const store = new Vuex.Store({
     },
     setFiatCurrency (state, code) {
       state.fiatCurrency = code
+      storage.setItem('currency', code)
     },
     setFiatPrice (state, price) {
       state.price = price
@@ -80,7 +82,7 @@ const store = new Vuex.Store({
     },
     agreement (state) {
       state.agreement = true
-      localStorage.setItem('agreement', '1')
+      storage.setItem('agreement', '1')
     },
     setUseCamera (state, flg) {
       state.useCamera = flg
@@ -90,7 +92,7 @@ const store = new Vuex.Store({
     },
     setNumberFormat (state, format) {
       state.numberFormat = format
-      localStorage.setItem('numberFormat', format)
+      storage.setItem('numberFormat', format)
       BigNumber.config({
         FORMAT: CONST.BIGNUMBER_FORMATS[format]
       })
@@ -176,7 +178,7 @@ const store = new Vuex.Store({
       })
     },
     deleteWallet ({commit, state}) {
-      localStorage.removeItem('wallets')
+      storage.removeItem('wallets')
       commit('setWallet', null)
       commit('setCurrentAccount', null)
       commit('setQRCode', null)
@@ -189,4 +191,5 @@ const store = new Vuex.Store({
     }
   }
 })
+
 export default store

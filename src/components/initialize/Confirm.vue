@@ -46,6 +46,7 @@
 </style>
 
 <script>
+import storage from '@/storage'
 
 export default {
   data () {
@@ -77,8 +78,9 @@ export default {
       }
     },
     finish: function () {
-      localStorage.setItem('wallets', this.$store.state.walletGroup.stringify())
-      this.$router.push('/wallet/home')
+      storage.setItem('wallets', this.$store.state.walletGroup.stringify()).then(() => {
+        this.$router.push('/wallet/home')
+      })
     }
   }
 }

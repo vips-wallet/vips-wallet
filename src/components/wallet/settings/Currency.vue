@@ -58,7 +58,6 @@ export default {
       },
       set (value) {
         this.$store.commit('setFiatCurrency', value)
-        localStorage.setItem('currency', value)
       }
     }
   },

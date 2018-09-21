@@ -42,6 +42,8 @@ a {
 </style>
 
 <script>
+import storage from '@/storage'
+
 export default {
   name: 'WalletSettingsLocale',
   data () {
@@ -59,8 +61,9 @@ export default {
         return this.$i18n.locale
       },
       set (value) {
-        localStorage.setItem('locale', value)
-        this.$i18n.locale = value
+        storage.setItem('locale', value).then(() => {
+          this.$i18n.locale = value
+        })
       }
     }
   },

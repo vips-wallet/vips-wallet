@@ -1,4 +1,5 @@
 import CONST from '@/utils/const'
+import storage from '@/storage'
 import store from '@/store'
 import axios from 'axios'
 import qrcode from 'qrcode'
@@ -7,8 +8,14 @@ import jsQR from 'jsqr'
 
 let openURICallback = null
 
-function walletExists () {
-  return (localStorage.getItem('wallets') !== null)
+async function walletExists () {
+  return storage.getItem('wallets').then(w => {
+    if (w !== null) {
+      return Promise.resolve()
+    } else {
+      return Promise.reject(new Error('wallets does not exists'))
+    }
+  })
 }
 
 function walletLoaded () {

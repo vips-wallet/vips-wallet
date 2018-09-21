@@ -70,6 +70,8 @@
 </style>
 
 <script>
+import storage from '@/storage'
+
 export default {
   name: 'Backup',
   data () {
@@ -107,7 +109,7 @@ export default {
       }
     },
     finish () {
-      localStorage.setItem('wallets', this.$store.state.walletGroup.stringify())
+      storage.setItem('wallets', this.$store.state.walletGroup.stringify())
       this.$router.push('/wallet/home')
     }
   }

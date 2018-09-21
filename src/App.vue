@@ -20,11 +20,11 @@ export default {
     }
   },
   mounted: function () {
-    if (utils.walletExists()) {
+    utils.walletExists().then(() => {
       this.$router.push('/wallet/home')
-    } else {
+    }).catch(() => {
       this.$router.push('/initialize/start')
-    }
+    })
   }
 }
 </script>

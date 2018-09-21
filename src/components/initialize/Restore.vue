@@ -132,6 +132,7 @@
 
 <script>
 import Scanner from '@/components/Scanner'
+import storage from '@/storage'
 import utils from '@/utils/utils'
 
 export default {
@@ -192,7 +193,8 @@ export default {
           return Promise.reject(new Error('must mnemonic or qrcode'))
         }
       }).then(() => {
-        localStorage.setItem('wallets', this.$store.state.walletGroup.stringify())
+        return storage.setItem('wallets', this.$store.state.walletGroup.stringify())
+      }).then(() => {
         this.$router.push('/wallet/home')
       }).catch(error => {
         this.$globalEvent.$emit('open-error-dialog', this.$t('initialize.import_failed'))
