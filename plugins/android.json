@@ -40,6 +40,9 @@
     },
     "cordova-plugin-keychain-touch-id": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     }
   },
   "dependent_plugins": {}
