@@ -91,13 +91,11 @@ a {
 <script>
 import LicenseAgreement from '@/components/LicenseAgreement'
 import LimitNotify from '@/components/LimitNotify'
+import storage from '@/storage'
 import utils from '@/utils/utils'
 import CONST from '@/utils/const'
 
 import {BigNumber} from 'bignumber.js'
-
-let minimize = localStorage.getItem('minimize')
-minimize = (minimize) ? JSON.parse(minimize) : false
 
 export default {
   name: 'Wallet',
@@ -110,8 +108,8 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      miniVariant: minimize,
-      miniVariantIcon: minimize ? 'chevron_right' : 'chevron_left',
+      miniVariant: false,
+      miniVariantIcon: 'chevron_left',
       deleteButtonVisible: false,
       refreshButtonVisible: false,
       cameraButtonVisible: false,
@@ -140,16 +138,16 @@ export default {
     }
   },
   mounted () {
-    let config = localStorage.getItem('wallets')
-    if (!config) {
-      this.$router.push('/initialize/start')
-    }
-
     if (this.$store.state.numberFormat) {
       BigNumber.config({
         FORMAT: CONST.BIGNUMBER_FORMATS[this.$store.state.numberFormat]
       })
     }
+
+    storage.getItem('minimize').then(min => {
+      this.minimize = (min) ? JSON.parse(min) : false
+      this.miniVariantIcon = (this.minimize) ? 'chevron_right' : 'chevron_left'
+    })
 
     utils.handleOpenURICallback((uri) => {
       try {
@@ -193,11 +191,15 @@ export default {
       this.account_label = label
     })
 
-    this.$store.dispatch('initialize', config).then(() => {
-      this.$globalEvent.$emit('wallet-info-updated')
-      this.$globalEvent.$emit('account_label', this.$store.state.account.label)
-    }).catch(error => {
-      this.$globalEvent.$emit('error-update-wallet-info', error)
+    storage.getItem('wallets').then(config => {
+      this.$store.dispatch('initialize', config).then(() => {
+        this.$globalEvent.$emit('wallet-info-updated')
+        this.$globalEvent.$emit('account_label', this.$store.state.account.label)
+      }).catch(error => {
+        this.$globalEvent.$emit('error-update-wallet-info', error)
+      })
+    }).catch(() => {
+      this.$router.push('/initialize/start')
     })
 
     this.$globalEvent.$on('do-update-wallet-info', () => {
@@ -221,7 +223,7 @@ export default {
     toggleVariant (event) {
       this.miniVariant = !this.miniVariant
       this.miniVariantIcon = this.miniVariant ? 'chevron_right' : 'chevron_left'
-      localStorage.setItem('minimize', this.miniVariant)
+      storage.setItem('minimize', this.miniVariant)
       return this.miniVariant
     },
     refreshWalletInfo () {

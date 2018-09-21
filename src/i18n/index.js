@@ -9,7 +9,7 @@ const data = {
 
 Vue.use(VueI18n)
 
-let locale = localStorage.getItem('locale')
+let locale = 'en'
 let navLang = (window.navigator.languages && window.navigator.languages[0]) || window.navigator.language || window.navigator.userLanguage || window.navigator.browserLanguage
 if (navLang.length > 2) {
   navLang = navLang.substr(0, 2)
@@ -18,12 +18,8 @@ if (!data[navLang]) {
   navLang = null
 }
 
-if (!locale) {
-  if (navLang) {
-    locale = navLang
-  } else {
-    locale = 'en'
-  }
+if (navLang) {
+  locale = navLang
 }
 
 export default new VueI18n({
