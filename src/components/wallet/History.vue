@@ -27,7 +27,9 @@
               <v-list-tile-sub-title>{{ tx.transferBalance }} VIPS</v-list-tile-sub-title>
             </v-list-tile-content>
             <v-list-tile-content>
-              <v-list-tile-title></v-list-tile-title>
+              <v-list-tile-title v-if="tx.message"><v-icon>message</v-icon></v-list-tile-title>
+              <v-list-tile-title v-if="tx.rate"><v-icon>attach_money</v-icon></v-list-tile-title>
+              <v-list-tile-title v-else></v-list-tile-title>
               <v-list-tile-sub-title>{{ tx.display_confirmations }} confirmations</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
