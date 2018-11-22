@@ -1,0 +1,269 @@
+{
+  "common": {
+    "language": "言語",
+    "agree": "同意する",
+    "back": "戻る",
+    "next": "進む",
+    "yes": "はい",
+    "no": "いいえ",
+    "finish": "完了",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "reload": "再読込",
+    "input_password": "パスワード入力",
+    "error": "エラー",
+    "password_mismatch": "パスワードが間違っています",
+    "camera_not_permitted": "カメラを使用する権限が必要です",
+    "camera_initialize_error": "カメラの初期化に失敗しました",
+    "camera_not_supported": "お使いの端末ではカメラを使用できません",
+    "copy_clipboard": "コピーしました",
+    "currency_is_not_supported": "指定の通貨({amountType})は非対応です",
+    "invalid_uri_format": "有効なヌクモリンクではありません",
+    "actions": "アクション",
+    "rescan": "再スキャン",
+    "load_file": "ファイルから読み込み",
+    "invalid_image": "読み込み時にエラーが発生しました",
+    "password_not_show": "指紋認証をご利用の場合、パスワードは表示できません"
+  },
+  "message": {
+    "title": "VIPSTAR☆COIN",
+    "phrase": "楽しさを、買おう。",
+    "warning": {
+      "title": "注意",
+      "ios": "iOSでのご利用の場合、iOSの仕様によりiOSがウォレットデータを削除することがあります。いつでも復元できるよう確実にバックアップを行ってください。",
+      "camera_not_supported": "ご利用の端末ではカメラが利用できないため、QRコードリーダー機能をお使いいただけません。<br>iOSをご利用の場合、Safari以外ではカメラが利用できないことにご注意ください。<br>また、Safariを利用していても「ホームに追加」を行うとカメラを利用することができません。"
+    }
+  },
+  "menu": {
+    "account": "ウォレット名: {name}",
+    "home": "ホーム",
+    "address": "アドレス一覧",
+    "receive": "受取",
+    "send": "送金",
+    "history": "履歴",
+    "sign": "署名/検証",
+    "settings": "設定"
+  },
+  "license": {
+    "title": "利用規約の確認",
+    "message1": " このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 一般公衆利用許諾書(バージョン3か、それ以降のバージョンのうちどれか)が定める条件の下で再頒布または改変することができます。",
+    "message2": "このプログラムは有用であることを願って頒布されますが、全くの無保証です。商業可能性の保証や特定目的への適合性は、言外に示されたものも含め、全く存在しません。詳しくはGNU 一般公衆利用許諾書をご覧ください。",
+    "message3": "下記リンクからGNU 一般公衆利用許諾書をよく読んだ上で「同意する」ボタンを押してお進みください。",
+    "link": "GNU 一般公衆利用許諾書の全文を表示する",
+    "sourcecode": "ソースコード"
+  },
+  "initialize": {
+    "create": "新規作成",
+    "restore": "復元",
+    "create_new_wallet": "ウォレットの新規作成",
+    "password": "パスワード",
+    "password_description": "ウォレットを保護するパスワードを8文字以上入力してください。使用出来る文字は半角英数字及び記号(!@#$%^&*)です。",
+    "password_less_length": "8文字以上で入力してください",
+    "password_use_invalid_word": "利用可能文字以外の文字が含まれています",
+    "word_count": "パスフレーズの単語数",
+    "word_count_description": "秘密鍵を人間が理解しやすい文字に置き換えたものを「パスフレーズ」または「ニーモニックフレーズ」と呼びます。単語数が多ければ多いほどウォレットはより安全になります。",
+    "your_passphrase": "パスフレーズの保管について",
+    "your_passphrase_description": "パスフレーズはウォレットを復元するのに必要です。パスフレーズを紛失するとウォレットの復元が出来なくなります。また、このパスフレーズが他人に知られた場合、あなたのVIPSTARCOINが盗難される危険性があります。正確に紙に書き写し、他人に見られない場所に厳重に保管してください。紛失した場合、誰にも復元することはできません。",
+    "invalid_password": "パスワードが間違っています",
+    "show_passphrase": "パスフレーズを表示する",
+    "restore_wallet": "ウォレットの復元",
+    "restore_phrase": "パスフレーズ",
+    "restore_phrase_description": "復元するウォレットのパスフレーズを入力してください。",
+    "restore_qrcode": "QRコード",
+    "reset_qrcode": "別のQRコードを選択",
+    "qrcode_loaded": "QRコードを読み込みました",
+    "qrcode_password_description": "以前のウォレットで指定したパスワードを入力してください。",
+    "import_failed": "ウォレットの復元に失敗しました。"
+  },
+  "home": {
+    "description": "ホーム",
+    "loading": "読み込み中...",
+    "confirmed_balance": "利用可能額",
+    "unconfirmed": "({unconfirmed} VIPS 検証中)",
+    "fiat": "法定通貨換算額",
+    "fiat_balance": "約 {amount} {currency}",
+    "fiat_fetch_time": "({time} 時点)",
+    "error": {
+      "connection_failed": "データ読み込み時にエラーが発生しました。"
+    }
+  },
+  "address": {
+    "description": "VIPSアドレス一覧",
+    "new_address": "新しいアドレスを追加"
+  },
+  "receive": {
+    "description": "VIPSを受け取る",
+    "copy": "ヌクモリンクをコピー",
+    "setting": "詳細設定",
+    "address": "VIPSアドレス",
+    "use_fiat": "{amount_type}をQRコードに埋め込む",
+    "amount": "請求額",
+    "fiat": "法定通貨換算額",
+    "fiat_code": "法定通貨",
+    "message": "メッセージ",
+    "share": "ヌクモリンクを共有",
+    "error": {
+      "invalid_amount": "請求額の入力が誤っています",
+      "invalid_fiat": "法定通貨換算額の入力が誤っています"
+    }
+  },
+  "send": {
+    "description": "VIPSを送る",
+    "available_balance": "利用可能額",
+    "receiver_message": "請求メッセージ",
+    "receiver_address": "送信先アドレス",
+    "amount": "送金額",
+    "fiat": "法定通貨換算額",
+    "fiat_code": "法定通貨",
+    "message": "メッセージ",
+    "include_rate": "レートを記録する",
+    "txfee": "手数料",
+    "confirm": "確認",
+    "send": "送金",
+    "finish": "送金しました",
+    "error": {
+      "required_valid_address": "有効なVIPSアドレスを入力してください",
+      "required_valid_amount": "送金額の入力が誤っています",
+      "required_over_dust": "最低送金額({dust} VIPS)以上の額を入力してください",
+      "required_valid_fiat": "法定通貨換算額の入力が誤っています",
+      "required_valid_message": "メッセージが長すぎます",
+      "update_balance_failed": "利用可能額の更新に失敗しました",
+      "update_fiat_rate_failed": "法定通貨換算額の更新に失敗しました",
+      "build_transaction_failed": "トランザクション生成に失敗しました。",
+      "send_transaction_failed": "送金に失敗しました。"
+    }
+  },
+  "sign": {
+    "description": "署名/検証",
+    "sign": "署名",
+    "message": "メッセージ",
+    "sign_address": "アドレス",
+    "sign_result": "署名結果",
+    "copy_sign": "署名結果をコピー",
+    "verify": "検証",
+    "verify_address": "検証するアドレス",
+    "verify_sign": "検証する署名",
+    "verify_success": "署名の検証に成功しました",
+    "verify_failed": "署名の検証に失敗しました",
+    "error": {
+      "required_valid_address": "有効なVIPSアドレスを入力してください",
+      "sign_failed": "署名に失敗しました"
+    }
+  },
+  "history": {
+    "description": "履歴",
+    "not_found": "履歴がありません",
+    "count": "送受信件数: {total}件",
+    "more": "以前のトランザクションを見る",
+    "detail": "トランザクション詳細",
+    "txid": "TXID",
+    "receive": "受信日時",
+    "transfer": "取引額",
+    "txfee": "手数料",
+    "rate": "法定通貨換算レート({fiat}/VIPS)",
+    "message": "メッセージ",
+    "input": "入力",
+    "output": "出力",
+    "sender": "送信アドレス",
+    "receiver": "受信アドレス",
+    "open_explorer": "エクスプローラーで見る"
+  },
+  "settings": {
+    "description": "設定",
+    "change_locale": "言語",
+    "change_number_format": "数字表記の変更",
+    "change_currency": "法定通貨の変更",
+    "fingerprint": "指紋認証",
+    "change_password": "パスワードの変更",
+    "manage_account": "ウォレットの管理",
+    "make_backup": "バックアップ",
+    "delete_wallet": "全ウォレットの削除",
+    "about": "このソフトウェアについて",
+    "locale": {
+      "japanese": "日本語",
+      "english": "英語",
+      "german": "ドイツ語"
+    },
+    "number_formats": {
+      "plain": "区切りなし",
+      "comma": " カンマ区切り",
+      "space": "スペース区切り"
+    },
+    "currency": {
+      "AUD": "AUD - オーストラリア・ドル",
+      "BRL": "BRL - ブラジル・レアル",
+      "CAD": "CAD - カナダ・ドル",
+      "CHF": "CHF - スイス・フラン",
+      "CLP": "CLP - チリ・ペソ",
+      "CNY": "CNY - 中国人民元",
+      "CZK": "CZK - チェコ・コルナ",
+      "DKK": "DKK - デンマーク・クローネ",
+      "EUR": "EUR - ユーロ",
+      "GBP": "GBP - スターリング・ポンド",
+      "HKD": "HKD - 香港・ドル",
+      "HUF": "HUF - ハンガリー・フォリント",
+      "IDR": "IDR - インドネシア・ルピア",
+      "ILS": "ILS - イスラエル・シェケル",
+      "INR": "INR - インド・ルピー",
+      "JPY": "JPY - 日本円",
+      "KRW": "KRW - 韓国ウォン",
+      "MXN": "MXN - メキシコ・ペソ",
+      "MYR": "MYR - マレーシア・リンギット",
+      "NOK": "NOK - ノルウェー・クローネ",
+      "NZD": "NZD - ニュージーランド・ドル",
+      "PHP": "PHP - フィリピン・ペソ",
+      "PKR": "PKR - パキスタン・ルピー",
+      "PLN": "PLN - ポーランド・ズウォティ",
+      "RUB": "RUB - ロシア・ルーブル",
+      "SEK": "SEK - スウェーデン・クローナ",
+      "SGD": "SGD - シンガポール・ドル",
+      "THB": "THB - タイ・バーツ",
+      "TRY": "TRY - トルコ・リラ",
+      "TWD": "TWD - 台湾・ドル",
+      "USD": "USD - アメリカ・ドル",
+      "ZAR": "ZAR - 南アフリカ・ランド"
+    },
+    "password": {
+      "current": "現在のパスワード",
+      "new": "新しいパスワード",
+      "confirm": "新しいパスワード(確認用)",
+      "button": "変更"
+    },
+    "fingerprint_detail": {
+      "enable": "指紋認証を有効にする",
+      "save": "設定を保存する",
+      "done": "設定を保存しました",
+      "error": {
+        "failed_save": "指紋認証の有効化に失敗しました",
+        "not_supported": "お使いの端末は指紋認証をサポートしていません。"
+      }
+    },
+    "backup": {
+      "show_passphrase": "パスフレーズを表示する",
+      "hide_passphrase": "パスフレーズを隠す",
+      "qrcode": "QRコード",
+      "save_qrcode": "QRコードを保存",
+      "passphrase": "パスフレーズ",
+      "saved_qrcode": "QRコードを保存しました",
+      "for_ios_issue": "端末のスクリーンショット機能を使って保存してください。QRコード部分をトリミングすることを推奨します。",
+      "error": {
+        "save_qrcode": "QRコードの保存に失敗しました"
+      }
+    },
+    "delete": {
+      "description": "ウォレットデータを端末から削除します。パスフレーズを再び入力することで復元することが出来ます。",
+      "confirm_make_backup": "パスフレーズを紙に書き写しました",
+      "confirm_delete": "この端末からウォレットデータを削除します",
+      "do_delete": "削除",
+      "complete": "ウォレットデータを削除しました。"
+    },
+    "about_detail": {
+      "name": "アプリケーション名",
+      "version": "バージョン",
+      "bugreport": "バグを報告する",
+      "open_bugreport_form": "バグ報告フォームを開く",
+      "license": "ソフトウェアライセンス",
+      "sourcecode": "ソースコード"
+    }
+  }
+}
