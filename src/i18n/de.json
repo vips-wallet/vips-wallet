@@ -171,6 +171,7 @@
   "settings": {
     "description": "Einstellung",
     "change_locale": "Sprache",
+    "change_number_format": "数字表記の変更",
     "change_currency": "Gesetzliche Währung ändern",
     "fingerprint": "Fingerabdruckscanner ",
     "change_password": "Passwort ändern",
