@@ -1,0 +1,7 @@
+files:
+  - source: /src/i18n/ja.json
+    translation: /src/i18n/%two_letters_code%.json
+    languages_mapping:
+      two_letters_code:
+        en: en
+        de: de
