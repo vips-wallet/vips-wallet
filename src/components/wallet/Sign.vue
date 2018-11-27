@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs12 sm8 offset-sm2>
-      <v-tabs grow v-model="tab" slot="extension" @input="changeTab()">
+      <v-tabs grow v-model="tab" slot="extension" @change="changeTab()">
         <v-tab key="sign">{{ $t('sign.sign') }}</v-tab>
         <v-tab key="verify">{{ $t('sign.verify') }}</v-tab>
       </v-tabs>
@@ -14,7 +14,7 @@
                   <v-select
                     cache-items
                     single-line
-                    bottom
+                    menu-props="bottom"
                     :label="$t('sign.sign_address')"
                     v-model="sign_address"
                     :items="addresses"

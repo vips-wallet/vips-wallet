@@ -4,13 +4,13 @@
       <v-flex xs12 md6 d-flex>
         <v-card>
           <div class="qrcode-info">
-            <v-card-media
+            <v-img
                 :src="qrcodeDataUri"
                 alt="QRCode"
                 height="200px"
                 contain
             >
-            </v-card-media>
+            </v-img>
             <v-card-text class="shorten">{{ address }}</v-card-text>
             <v-card-actions>
               <v-btn block color="primary" dark v-t="'receive.copy'" @click="copyURIClipBoard()"></v-btn>
@@ -27,7 +27,7 @@
                 <v-select
                   cache-items
                   single-line
-                  bottom
+                  menu-props="bottom"
                   :label="$t('receive.address')"
                   v-model="address"
                   :items="addresses"
