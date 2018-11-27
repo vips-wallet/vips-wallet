@@ -2,8 +2,8 @@
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
-        <v-radio-group v-model="number_format" :mandatory="false">
-          <v-list three-line>
+        <v-radio-group class="full-width-list-items" v-model="number_format" :mandatory="false">
+          <v-list three-line subheader>
             <v-list-tile
               v-for="(item, i) in formats"
               :key="i"
@@ -21,7 +21,7 @@
         </v-radio-group>
       </v-card>
     </v-flex>
-</v-layout>
+  </v-layout>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

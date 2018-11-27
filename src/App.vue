@@ -6,6 +6,12 @@
   </v-app>
 </template>
 
+<style>
+.full-width-list-items .v-input__control {
+  width: 100%;
+}
+</style>
+
 <script>
 import ErrorDialog from '@/components//ErrorDialog'
 import utils from '@/utils/utils'

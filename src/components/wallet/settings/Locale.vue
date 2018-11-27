@@ -2,7 +2,7 @@
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
-        <v-radio-group v-model="locale" :mandatory="false">
+        <v-radio-group class="full-width-list-items" v-model="locale" :mandatory="false">
           <v-list three-line>
             <v-list-tile
               v-for="(item, i) in locales"
@@ -20,7 +20,7 @@
         </v-radio-group>
       </v-card>
     </v-flex>
-</v-layout>
+  </v-layout>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
