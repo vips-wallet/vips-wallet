@@ -68,5 +68,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-keychain-touch-id" spec="https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id" />
     <plugin name="cordova-plugin-nativestorage" spec="^2.3.2" />
-    <engine name="android" spec="^7.1.0" />
+    <engine name="android" spec="^7.1.4" />
 </widget>

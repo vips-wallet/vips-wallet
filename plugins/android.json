@@ -26,6 +26,12 @@
     "cordova-plugin-file": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
+    "cordova-plugin-keychain-touch-id": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
@@ -36,12 +42,6 @@
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     },
     "es6-promise-plugin": {
-      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
-    },
-    "cordova-plugin-keychain-touch-id": {
-      "PACKAGE_NAME": "jp.vipstarcoin.wallet"
-    },
-    "cordova-plugin-nativestorage": {
       "PACKAGE_NAME": "jp.vipstarcoin.wallet"
     }
   },
