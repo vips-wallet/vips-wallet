@@ -58,7 +58,7 @@
     "vue-mugen-scroll": "^0.2.5",
     "vue-qrcode-reader": "^0.8.5",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.1.17",
+    "vuetify": "^1.3.9",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
