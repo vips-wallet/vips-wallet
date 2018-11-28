@@ -141,7 +141,7 @@
       v-model="snackbar"
       :timeout="snackbar_timeout"
     >
-      {{ $t('common.copy_clipboard') }}
+      <span v-t="'common.copy_clipboard'"></span>
       <v-btn flat @click="snackbar = false" v-t="'common.close'">
       </v-btn>
     </v-snackbar>

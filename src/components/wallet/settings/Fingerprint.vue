@@ -44,7 +44,7 @@
       v-model="snackbar"
       :timeout="snackbar_timeout"
     >
-      {{ $t('settings.fingerprint_detail.done') }}
+      <span v-t="'settings.fingerprint_detail.done'"></span>
       <v-btn flat @click="snackbar = false" v-t="'common.close'">
       </v-btn>
     </v-snackbar>

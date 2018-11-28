@@ -2,8 +2,8 @@
   <v-layout>
     <v-flex xs12 sm8 offset-sm2>
       <v-tabs grow v-model="tab" slot="extension" @change="changeTab()">
-        <v-tab key="sign">{{ $t('sign.sign') }}</v-tab>
-        <v-tab key="verify">{{ $t('sign.verify') }}</v-tab>
+        <v-tab key="sign"><span v-t="'sign.sign'"></span></v-tab>
+        <v-tab key="verify"><span v-t="'sign.verify'"></span></v-tab>
       </v-tabs>
       <v-tabs-items v-model="tab">
         <v-tab-item key="sign">
@@ -128,7 +128,7 @@
       v-model="snackbar"
       :timeout="snackbar_timeout"
     >
-      {{ $t('common.copy_clipboard') }}
+      <span v-t="'common.copy_clipboard'"></span>
       <v-btn flat @click="snackbar = false" v-t="'common.close'">
       </v-btn>
     </v-snackbar>

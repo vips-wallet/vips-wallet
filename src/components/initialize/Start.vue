@@ -10,8 +10,8 @@
       </v-card-media>
       <v-card-title primary-title>
         <div class="apptitle">
-          <h3 class="headline mb-0">{{ $t("message.title") }}</h3>
-          <div class="apptitle">{{ $t("message.phrase") }}</div>
+          <h3 class="headline mb-0" v-t="'message.title'"></h3>
+          <div class="apptitle" v-t="'message.phrase'"></div>
           <v-select cache-items
             single-line
             bottom
@@ -31,10 +31,10 @@
     <v-footer fixed height="auto">
       <v-flex xs10 sm6 offset-xs1 offset-sm3>
         <v-layout row wrap justify-center>
-          <v-btn block color="orange" :disabled="disabled" @click="$router.push('create')">{{ $t("initialize.create") }}</v-btn>
+          <v-btn block color="orange" :disabled="disabled" @click="$router.push('create')" v-t="'initialize.create'"></v-btn>
         </v-layout>
         <v-layout row wrap justify-center>
-          <v-btn block color="orange" :disabled="disabled" @click="$router.push('restore')">{{ $t("initialize.restore") }}</v-btn>
+          <v-btn block color="orange" :disabled="disabled" @click="$router.push('restore')" v-t="'initialize.restore'"></v-btn>
         </v-layout>
       </v-flex>
     </v-footer>
