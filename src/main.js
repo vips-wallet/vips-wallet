@@ -4,7 +4,6 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
-import VueCordova from 'vue-cordova'
 import VueHead from 'vue-head'
 import VueQrcodeReader from 'vue-qrcode-reader'
 
@@ -18,7 +17,6 @@ import GlobalEvent from '@/plugins/GlobalEvent.js'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
-Vue.use(VueCordova)
 Vue.use(VueHead)
 Vue.use(VueQrcodeReader)
 Vue.use(GlobalEvent)
