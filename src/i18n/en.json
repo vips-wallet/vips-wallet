@@ -165,6 +165,7 @@
     "input": "Input",
     "output": "Output",
     "sender": "Sender Addresses",
+    "newly_generate": "入力なし(新規生成)",
     "receiver": "Receiver Addresses",
     "open_explorer": "Open Explorer"
   },
