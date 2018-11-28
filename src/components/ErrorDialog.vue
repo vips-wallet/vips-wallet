@@ -2,11 +2,11 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="400">
       <v-card>
-        <v-card-title class="headline">{{ $t('common.error') }}</v-card-title>
+        <v-card-title class="headline" v-t="'common.error'"></v-card-title>
         <v-card-text>{{ detail }}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" flat @click.native="close()">{{ $t('common.close') }}</v-btn>
+          <v-btn color="green darken-1" flat @click.native="close()" v-t="'common.close'"></v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

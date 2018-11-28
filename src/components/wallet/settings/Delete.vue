@@ -46,7 +46,7 @@
         <v-card-text v-t="'settings.delete.complete'"></v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" flat @click.native="reload">{{ $t('common.finish') }}</v-btn>
+          <v-btn color="green darken-1" flat @click.native="reload" v-t="'common.finish'"></v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

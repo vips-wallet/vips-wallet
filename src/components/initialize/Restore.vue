@@ -7,8 +7,8 @@
         </v-btn>
         <v-toolbar-title v-t="'initialize.restore_wallet'"></v-toolbar-title>
         <v-tabs grow v-model="tab" slot="extension" @input="changeTab()">
-          <v-tab key="phrase">{{ $t('initialize.restore_phrase') }}</v-tab>
-          <v-tab key="qrcode">{{ $t('initialize.restore_qrcode') }}</v-tab>
+          <v-tab key="phrase"><span v-t="'initialize.restore_phrase'"></span></v-tab>
+          <v-tab key="qrcode"><span v-t="'initialize.restore_qrcode'"></span></v-tab>
         </v-tabs>
       </v-toolbar>
       <v-tabs-items v-model="tab">

@@ -21,7 +21,7 @@
       <v-flex xs12 md6 d-flex child-flex>
         <v-card>
           <v-container>
-            <v-subheader>{{ $t('receive.setting') }}</v-subheader>
+            <v-subheader v-t="'receive.setting'"></v-subheader>
             <v-layout row>
               <v-flex xs12>
                 <v-select
@@ -134,7 +134,7 @@
         v-model="snackbar"
         :timeout="snackbar_timeout"
       >
-        {{ $t('common.copy_clipboard') }}
+        <span v-t="'common.copy_clipboard'"></span>
         <v-btn flat @click="snackbar = false" v-t="'common.close'">
         </v-btn>
       </v-snackbar>
