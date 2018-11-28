@@ -165,6 +165,7 @@
     "input": "入力",
     "output": "出力",
     "sender": "送信アドレス",
+    "newly_generate": "入力なし(新規生成)",
     "receiver": "受信アドレス",
     "open_explorer": "エクスプローラーで見る"
   },

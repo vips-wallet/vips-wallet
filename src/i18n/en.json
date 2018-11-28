@@ -165,6 +165,7 @@
     "input": "Input",
     "output": "Output",
     "sender": "Sender Addresses",
+    "newly_generate": "No input (newly generated)",
     "receiver": "Receiver Addresses",
     "open_explorer": "Open Explorer"
   },
