@@ -52,7 +52,6 @@
     "uuid": "^3.2.1",
     "vipstarcoinjs-wallet-core": "vips-wallet/vipstarcoinjs-wallet-core#v0.1.1",
     "vue": "^2.5.17",
-    "vue-cordova": "^0.1.2",
     "vue-head": "^2.0.12",
     "vue-i18n": "^8.3.2",
     "vue-mugen-scroll": "^0.2.5",
