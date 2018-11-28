@@ -165,15 +165,11 @@
 import {BigNumber} from 'bignumber.js'
 import moment from 'moment'
 import {messageutil} from 'vipstarcoinjs-wallet-core'
-import MugenScroll from 'vue-mugen-scroll'
 
 import utils from '@/utils/utils'
 
 export default {
   name: 'WalletHistory',
-  components: {
-    MugenScroll
-  },
   data () {
     return {
       snackbar: false,
