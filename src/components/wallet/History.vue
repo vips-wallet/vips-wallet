@@ -18,7 +18,8 @@
           >
             <v-list-tile-action>
               <v-btn icon>
-                <v-icon v-if="tx.sendTx">open_in_browser</v-icon>
+                <v-icon v-if="tx.isCoinBase">fiber_new</v-icon>
+                <v-icon v-else-if="tx.sendTx">open_in_browser</v-icon>
                 <v-icon v-else>archive</v-icon>
               </v-btn>
             </v-list-tile-action>
@@ -69,7 +70,8 @@
             <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title v-t="'history.input'"></v-list-tile-title>
-                <v-list-tile-sub-title>{{ detail.valueIn }} VIPS</v-list-tile-sub-title>
+                <v-list-tile-sub-title v-if="detail.isCoinBase" v-t="'history.newly_generate'"></v-list-tile-sub-title>
+                <v-list-tile-sub-title v-else>{{ detail.valueIn }} VIPS</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider></v-divider>
@@ -79,8 +81,8 @@
                 <v-list-tile-sub-title>{{ detail.valueOut }} VIPS</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-            <v-divider></v-divider>
-            <v-list-tile>
+            <v-divider v-if="!detail.isCoinBase"></v-divider>
+            <v-list-tile v-if="!detail.isCoinBase">
               <v-list-tile-content>
                 <v-list-tile-title v-t="'history.txfee'"></v-list-tile-title>
                 <v-list-tile-sub-title>{{ detail.fees }} VIPS</v-list-tile-sub-title>
@@ -108,7 +110,10 @@
               v-for="(addr, i) in detail.inAddresses"
               :key="i"
             >
-              <v-list-tile-content @click.prevent="notifications = !notifications">
+              <v-list-tile-content @click.prevent="notifications = !notifications" v-if="detail.isCoinBase">
+                <v-list-tile-title v-t="'history.newly_generate'"></v-list-tile-title>
+              </v-list-tile-content>
+              <v-list-tile-content @click.prevent="notifications = !notifications" v-else>
                 <v-list-tile-title :class="addr.mine ? 'mineAddr' : ''">{{ addr.address }}</v-list-tile-title>
                 <v-list-tile-sub-title>{{ addr.value }} VIPS</v-list-tile-sub-title>
               </v-list-tile-content>
@@ -265,7 +270,7 @@ export default {
         }
         tx.vout[i].mineAddr = mine
 
-        if (vout.scriptPubKey.hex && vout.scriptPubKey.hex.substr(0, 2) === '6a') {
+        if (vout.scriptPubKey.hex && vout.scriptPubKey.hex.substr(0, 2) === '6a' && !tx.isCoinBase) {
           let message = messageutil.decode(vout.scriptPubKey.hex)
           if (this.isRateMessage(message)) {
             tx.rate = messageutil.parseRate(message)
