@@ -165,14 +165,14 @@
     "input": "Eingang",
     "output": "Ausgang",
     "sender": "Absenderadressen",
-    "newly_generate": "入力なし(新規生成)",
+    "newly_generate": "Keine Eingänge (Neu generierte)",
     "receiver": "Empfängeradressen",
     "open_explorer": "Im Explorer anschauen"
   },
   "settings": {
     "description": "Einstellung",
     "change_locale": "Sprache",
-    "change_number_format": "数字表記の変更",
+    "change_number_format": "Nummernformat ändern",
     "change_currency": "Gesetzliche Währung ändern",
     "fingerprint": "Fingerabdruckscanner ",
     "change_password": "Passwort ändern",
