@@ -381,7 +381,7 @@ export default {
           let oldAmountType = this.amountType
           this.amountType = uri.options.amountType
           utils.getTicker(uri.options.amountType).then(resp => {
-            let quote = resp.data.quotes[uri.options.amountType]
+            let quote = resp[uri.options.amountType.toLowerCase()]
             if (quote === null) {
               this.$globalEvent.$emit('open-error-dialog', this.$t('common.currency_is_not_supported', {amountType: uri.options.amountType}))
               if (uri.options.amount) {
@@ -392,7 +392,7 @@ export default {
                 this.fiat = this.toFiat(new BigNumber(this.amount))
               }
             } else {
-              this.fiatRate = new BigNumber(quote.price)
+              this.fiatRate = new BigNumber(quote)
               this.focused = 'fiat'
               this.amount = this.toAmount(new BigNumber(uri.options.amountExt))
               this.fiat = uri.options.amountExt
@@ -613,11 +613,11 @@ export default {
     },
     updateFiatRate () {
       utils.getTicker(this.amountType).then(resp => {
-        let quote = resp.data.quotes[this.amountType]
+        let quote = resp[this.amountType.toLowerCase()]
         if (quote === null) {
           this.$globalEvent.$emit('open-error-dialog', this.$t('common.currency_is_not_supported', {amountType: this.amountType}))
         } else {
-          this.fiatRate = new BigNumber(quote.price)
+          this.fiatRate = new BigNumber(quote)
           if (this.focused === 'fiat') {
             this.amount = this.toAmount(new BigNumber(this.fiat))
           } else {

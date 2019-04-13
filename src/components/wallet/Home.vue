@@ -95,6 +95,7 @@ export default {
       show: false,
       show_camera: false,
       cmc_url: CONST.CMC_URL,
+      gecko_url: CONST.GECKO_URL,
       camera_config: CONST.QRCODE_CAMERA_CONFIG
     }
   },

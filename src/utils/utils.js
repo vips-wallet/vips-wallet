@@ -16,13 +16,13 @@ function walletLoaded () {
 }
 
 function getTicker (code) {
-  let uri = `${CONST.TICKER.URL}${CONST.TICKER.ID}/`
+  let uri = `${CONST.TICKER.URL}?ids=${CONST.TICKER.ID}`
   if (code !== null || code !== '') {
-    uri = `${uri}?convert=${code}`
+    uri = `${uri}&vs_currencies=${code}`
   }
   return new Promise((resolve, reject) => {
     axios.get(uri).then((resp) => {
-      resolve(resp.data)
+      resolve(resp.data[CONST.TICKER.ID])
     }).catch((error) => {
       reject(error)
     })
