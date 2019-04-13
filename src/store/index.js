@@ -164,11 +164,11 @@ const store = new Vuex.Store({
     async updateFiat ({commit, state}) {
       return utils.getTicker(state.fiatCurrency).then(resp => {
         return new Promise((resolve, reject) => {
-          let quote = resp.data.quotes[state.fiatCurrency]
+          let quote = resp[state.fiatCurrency.toLowerCase()]
           if (quote === null) {
             reject(new Error(`${state.fiatCurrency} does not supported`))
           } else {
-            let price = new BigNumber(quote.price)
+            let price = new BigNumber(quote)
             commit('setFiatPrice', price)
             resolve(price)
           }

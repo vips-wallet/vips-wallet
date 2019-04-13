@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="6" id="jp.vipstarcoin.wallet" ios-CFBundleVersion="1" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="7" id="jp.vipstarcoin.wallet" ios-CFBundleVersion="1" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>VIPS Wallet</name>
     <description>VIPSTARCOIN light wallet</description>
     <author email="from.kyushu.island@gmail.com" href="https://github.com/vips-wallet">

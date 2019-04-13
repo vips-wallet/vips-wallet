@@ -5,10 +5,11 @@ const constants = {
   IV: '\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f',
   DUST_RELAY_TX_FEE: 0.004,
   TICKER: {
-    ID: 2688,
-    URL: 'https://api.coinmarketcap.com/v2/ticker/'
+    ID: 'vipstarcoin',
+    URL: 'https://api.coingecko.com/api/v3/simple/price?ids=vipstarcoin&vs_currencies=jpy'
   },
   CMC_URL: 'https://coinmarketcap.com/currencies/vipstar-coin/',
+  GECKO_URL: 'https://www.coingecko.com/en/coins/vipstarcoin',
   CURRENCIES: [
     'AUD', 'BRL', 'CAD', 'CHF', 'CLP',
     'CNY', 'CZK', 'DKK', 'EUR', 'GBP',
